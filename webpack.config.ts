@@ -1,33 +1,27 @@
-import  path from 'path'
-import * as webpack from 'webpack'
+import path from 'path'
 
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { WebpackEnv, WebpackPath } from './config/webpack/types/config'
+import { getWebpackConfig } from './config/webpack/getWebpackConfig'
+import { Configuration } from 'webpack'
 
-const config: webpack.Configuration  = {
-  mode: 'development',
-  entry: path.resolve('src', 'index.ts'),
-  output: {
-    filename: '[name].[contenthash].bundle.js',
-    path: path.resolve('dist'),
-    clean: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve('public', 'index.html'),
-    }),
-    new webpack.ProgressPlugin(),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
+export default (env: WebpackEnv): Configuration => {
+  const paths: WebpackPath = {
+    entry: path.resolve('src', 'index.ts'),
+    output: path.resolve('build'),
+    html: path.resolve('public', 'index.html'),
+  }
+
+  const mode = env.mode || 'development'
+  const isDev = mode === 'development'
+
+  const PORT = env.port || 3000
+
+  const config: Configuration = getWebpackConfig({
+    mode,
+    paths,
+    isDev,
+    port: PORT,
+  })
+
+  return config
 }
-export default config
