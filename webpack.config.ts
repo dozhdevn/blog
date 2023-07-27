@@ -6,7 +6,7 @@ import { Configuration } from 'webpack'
 
 export default (env: WebpackEnv): Configuration => {
   const paths: WebpackPath = {
-    entry: path.resolve('src', 'index.ts'),
+    entry: path.resolve('src', 'index.tsx'),
     output: path.resolve('build'),
     html: path.resolve('public', 'index.html'),
   }
