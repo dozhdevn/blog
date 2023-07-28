@@ -14,7 +14,7 @@ export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      MiniCssExtractPlugin.loader,
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
