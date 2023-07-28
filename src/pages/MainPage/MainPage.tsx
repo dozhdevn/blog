@@ -1,8 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { coreActions } from '../../core'
 
- const MainPage = () => {
+const MainPage = () => {
+  const dispatch = useDispatch()
+
+  const handleToggleTheme = () => {
+    dispatch(coreActions.toggleTheme())
+  }
+
   return (
-    <div>MainPage</div>
+    <div>
+      <button onClick={handleToggleTheme}>toggle theme</button>
+    </div>
   )
 }
 

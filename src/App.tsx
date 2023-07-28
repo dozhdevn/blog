@@ -1,10 +1,11 @@
-import React, { Suspense } from 'react'
-import { Counter } from './components/Counter'
+import { Suspense } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
-import './index.scss'
 import { MainPageLazy } from './pages/MainPage'
 import { AboutPageLazy } from './pages/AboutPage'
+import { withTheme } from './core'
+
+import './index.scss'
 
 const App = () => {
   return (
@@ -21,4 +22,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withTheme(App)
