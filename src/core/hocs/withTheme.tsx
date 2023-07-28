@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux'
-import { getTheme } from '../model/selectors/getTheme'
+
+import { getTheme } from 'core/model/selectors/getTheme'
+
 import { useLayoutEffect } from 'react'
-import { Theme } from '../model/types/types'
+import { Theme } from 'core/model/types/types'
 
 const LOCAL_STORAGE_THEME_KEY = 'theme'
 

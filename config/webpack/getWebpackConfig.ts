@@ -21,7 +21,7 @@ export const getWebpackConfig = (options: WebpackOptions): Configuration => {
     module: {
       rules: getLoaders(options),
     },
-    resolve: getResolvers(),
+    resolve: getResolvers(options),
     devServer: isDev ? getDevServer(options): undefined,
   }
 }
