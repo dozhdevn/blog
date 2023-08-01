@@ -1,11 +1,9 @@
 import { Suspense } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
-import { MainPageLazy } from './pages/MainPage'
-import { AboutPageLazy } from './pages/AboutPage'
-import { withTheme } from './core'
-
-import './index.scss'
+import { MainPage } from '../pages/MainPage'
+import { AboutPage } from '../pages/AboutPage'
+import { withTheme } from '../core'
 
 const App = () => {
   return (
@@ -14,8 +12,8 @@ const App = () => {
       <Link to='/about'>ABOUT</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route path='/' exact component={MainPageLazy} />
-          <Route path='/about' exact component={AboutPageLazy} />
+          <Route path='/' exact component={MainPage} />
+          <Route path='/about' exact component={AboutPage} />
         </Switch>
       </Suspense>
     </div>
