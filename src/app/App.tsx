@@ -1,21 +1,14 @@
-import { Suspense } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import { MainPage } from '../pages/MainPage'
-import { AboutPage } from '../pages/AboutPage'
 import { withTheme } from '../core'
+import { AppRouter } from 'routes'
+import { Navbar } from 'core/component/Navbar'
 
 const App = () => {
   return (
     <div className='app'>
-      <Link to='/'>MAIN</Link>
-      <Link to='/about'>ABOUT</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Switch>
-          <Route path='/' exact component={MainPage} />
-          <Route path='/about' exact component={AboutPage} />
-        </Switch>
-      </Suspense>
+      <Navbar />
+      <AppRouter />
     </div>
   )
 }
