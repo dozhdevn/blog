@@ -1,29 +1,19 @@
 import React from 'react'
 
-import styles from './Navbar.module.scss'
 import cn from 'classnames'
-import { useDispatch } from 'react-redux'
-import { coreActions } from 'core/model/slice/coreSlice'
 import { AppLink } from 'components/AppLink'
-import ToggleTheme from 'assets/icons/svg/theme-toggle.svg'
+import { ThemeSwitcher } from 'core/component/ThemeSwitcher'
 
+import styles from './Navbar.module.scss'
 
 export interface NavbarProps {
   className?: string
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ className }) => {
-  const dispatch = useDispatch()
-
-  const handleToggleTheme = () => {
-    dispatch(coreActions.toggleTheme())
-  }
-
   return (
     <div className={cn(styles.navbar, className)}>
-      <button onClick={handleToggleTheme}>
-        <ToggleTheme/>
-      </button>
+      <ThemeSwitcher />
       <div className={styles.links}>
         <AppLink className={styles.mainLink} to='/'>
           MAIN
