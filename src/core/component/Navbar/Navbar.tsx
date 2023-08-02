@@ -5,6 +5,8 @@ import cn from 'classnames'
 import { useDispatch } from 'react-redux'
 import { coreActions } from 'core/model/slice/coreSlice'
 import { AppLink } from 'components/AppLink'
+import ToggleTheme from 'assets/icons/svg/theme-toggle.svg'
+
 
 export interface NavbarProps {
   className?: string
@@ -19,9 +21,13 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
   return (
     <div className={cn(styles.navbar, className)}>
-      <button onClick={handleToggleTheme}>toggle theme</button>
+      <button onClick={handleToggleTheme}>
+        <ToggleTheme/>
+      </button>
       <div className={styles.links}>
-        <AppLink className={styles.mainLink} to='/'>MAIN</AppLink>
+        <AppLink className={styles.mainLink} to='/'>
+          MAIN
+        </AppLink>
         <AppLink to='/about'>ABOUT</AppLink>
       </div>
     </div>

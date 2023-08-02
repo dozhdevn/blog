@@ -11,6 +11,21 @@ export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {
     exclude: /node_modules/,
   }
 
+  const svgLoader = {
+    test: /\.svg$/,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -30,5 +45,5 @@ export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {
     ],
   }
 
-  return [typescriptLoader, cssLoader]
+  return [typescriptLoader, fileLoader, svgLoader, cssLoader]
 }
