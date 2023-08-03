@@ -6,8 +6,16 @@ export const AppRouter: React.FC = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        {routerConfig.map(route => (
-          <Route key={route.path} {...route} />
+        {routerConfig.map(({ component: Component, ...route }) => (
+          <Route
+            key={route.path}
+            {...route}
+            render={() => (
+              <div className='page-wrapper'>
+                <Component />
+              </div>
+            )}
+          />
         ))}
       </Switch>
     </Suspense>
