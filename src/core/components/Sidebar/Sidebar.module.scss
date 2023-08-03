@@ -13,6 +13,9 @@
   }
 }
 
-.toggleSwitcher {
+.switchers {
+  width: 53px;
   margin-top: auto;
+  display: flex;
+  gap: 10px;
 }

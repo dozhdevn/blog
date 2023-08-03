@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { withTheme } from '../core'
 import { AppRouter } from 'routes'
 import { Navbar } from 'core/components/Navbar'
@@ -7,13 +9,15 @@ import './app.scss'
 
 const App = () => {
   return (
-    <div className='app'>
-      <Navbar />
-      <div className='content-page'>
-        <Sidebar />
-        <AppRouter />
+    <Suspense fallback="loading">
+      <div className='app'>
+        <Navbar />
+        <div className='content-page'>
+          <Sidebar />
+          <AppRouter />
+        </div>
       </div>
-    </div>
+    </Suspense>
   )
 }
 

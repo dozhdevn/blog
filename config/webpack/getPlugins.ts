@@ -7,7 +7,7 @@ import { WebpackOptions } from './types/config'
 export const getPlugins = (
   options: WebpackOptions
 ): webpack.WebpackPluginInstance[] => {
-  const { paths } = options
+  const { paths, isDev } = options
 
   const plugins = [
     new HtmlWebpackPlugin({
@@ -18,6 +18,9 @@ export const getPlugins = (
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
+    new webpack.DefinePlugin({
+      __IS__DEV__: JSON.stringify(isDev)
+    })
   ]
 
   return plugins
