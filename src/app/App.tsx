@@ -1,9 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
 import { Suspense } from 'react'
+import { compose } from 'redux'
 
 import { AppRouter } from 'routes'
 import { Navbar } from 'core/components/Navbar'
 import { Sidebar } from 'core/components/Sidebar'
+import { withErrorBoundary } from 'core/hocs/withErrorBoundary'
 import { withTheme } from '../core'
 
 import './app.scss'
@@ -22,4 +24,4 @@ function App() {
   )
 }
 
-export default withTheme(App)
+export default compose(withTheme, withErrorBoundary)(App)

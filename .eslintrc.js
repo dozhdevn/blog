@@ -47,6 +47,9 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'jsx-quotes': ['error', 'prefer-single'],
     'no-restricted-exports': 'off',
+    'max-len': ['error', { code: 125 }],
+    'implicit-arrow-linebreak': 'off',
+    'comma-spacing': 'off',
   },
   globals: {
     __IS_DEV__: true,
