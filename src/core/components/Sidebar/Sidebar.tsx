@@ -10,14 +10,14 @@ export const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
 
   const handleToggleColapsed = () => {
-    setCollapsed(prev => !prev)
+    setCollapsed((prev) => !prev)
   }
 
   return (
     <div
       className={cn(styles.sidebar, { [styles.sidebar_collapsed]: collapsed })}
     >
-      <button onClick={handleToggleColapsed}>collapsed</button>
+      <button onClick={handleToggleColapsed}>+</button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LanguageSwitch />

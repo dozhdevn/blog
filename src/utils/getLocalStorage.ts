@@ -1,3 +1,1 @@
-export const getLocalStorage = (key: string) => {
-  return localStorage.getItem(key)
-}
+export const getLocalStorage = (key: string) => localStorage.getItem(key)

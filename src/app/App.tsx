@@ -1,15 +1,18 @@
 import { Suspense } from 'react'
 
-import { withTheme } from '../core'
+import { useTranslation } from 'react-i18next'
 import { AppRouter } from 'routes'
 import { Navbar } from 'core/components/Navbar'
 import { Sidebar } from 'core/components/Sidebar'
+import { withTheme } from '../core'
 
 import './app.scss'
 
-const App = () => {
+function App() {
+  const { t } = useTranslation()
+
   return (
-    <Suspense fallback="loading">
+    <Suspense fallback={t('Загрузка')}>
       <div className='app'>
         <Navbar />
         <div className='content-page'>

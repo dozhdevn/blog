@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   const buttonClassName = cn(
     styles.button,
     [styles[`button_${variant}`]],
-    className
+    className,
   )
 
   return (

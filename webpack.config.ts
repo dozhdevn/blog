@@ -1,15 +1,15 @@
 import path from 'path'
 
+import { Configuration } from 'webpack'
 import { WebpackEnv, WebpackPath } from './config/webpack/types/config'
 import { getWebpackConfig } from './config/webpack/getWebpackConfig'
-import { Configuration } from 'webpack'
 
 export default (env: WebpackEnv): Configuration => {
   const paths: WebpackPath = {
     entry: path.resolve('src', 'index.tsx'),
     output: path.resolve('build'),
     html: path.resolve('public', 'index.html'),
-    src: path.resolve( 'src'),
+    src: path.resolve('src'),
   }
 
   const mode = env.mode || 'development'

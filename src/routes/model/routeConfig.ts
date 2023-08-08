@@ -1,6 +1,6 @@
 import { MainPage } from 'pages/MainPage'
-import { RouterConfig } from './types'
 import { AboutPage } from 'pages/AboutPage'
+import { RouterConfig } from './types'
 import { RoutePath } from './routePaths'
 
 export const routerConfig: RouterConfig[] = [

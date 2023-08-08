@@ -9,15 +9,13 @@ export interface NavbarProps {
   className?: string
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ className }) => {
-  return (
-    <div className={cn(styles.navbar, className)}>
-      <div className={styles.links}>
-        <AppLink className={styles.mainLink} to='/'>
-          MAIN
-        </AppLink>
-        <AppLink to='/about'>ABOUT</AppLink>
-      </div>
+export const Navbar: React.FC<NavbarProps> = ({ className }) => (
+  <div className={cn(styles.navbar, className)}>
+    <div className={styles.links}>
+      <AppLink className={styles.mainLink} to='/'>
+        1
+      </AppLink>
+      <AppLink to='/about'>1</AppLink>
     </div>
-  )
-}
+  </div>
+)
