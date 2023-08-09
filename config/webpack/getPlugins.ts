@@ -2,6 +2,7 @@ import webpack from 'webpack'
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { WebpackOptions } from './types/config'
 
 export const getPlugins = (
@@ -20,6 +21,9 @@ export const getPlugins = (
     }),
     new webpack.DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
     }),
   ]
 
