@@ -1,10 +1,2 @@
 .themeSwitcher {
-  &__icon {
-    color: var(--icon-color);
-    transition: color 0.1s ease-in;
-
-    &:hover {
-      color: var(--accent-color)
-    }
-  }
 }

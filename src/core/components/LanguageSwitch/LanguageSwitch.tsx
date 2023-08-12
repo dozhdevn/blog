@@ -2,9 +2,9 @@ import React from 'react'
 
 import cn from 'classnames'
 
-import { Button } from 'components/Button'
 import { useTranslation } from 'react-i18next'
 import { Languages } from 'i18n/types'
+import { IconButton } from 'components/IconButton'
 import styles from './LanguageSwitch.module.scss'
 
 export interface LanguageSwitchProps {
@@ -23,11 +23,11 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
   }
 
   return (
-    <Button
+    <IconButton
       onClick={changeLanguageHandler}
       className={cn(styles.langSwitcher, className)}
     >
-      {t('Язык')}
-    </Button>
+      <p>{t('Язык')}</p>
+    </IconButton>
   )
 }

@@ -1,0 +1,17 @@
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  & svg {
+    color: var(--icon-color);
+    transition: color 0.2s ease-in-out;
+  }
+
+  &:hover {
+    
+    & svg {
+      color: var(--accent-color)
+    }
+  }
+}
