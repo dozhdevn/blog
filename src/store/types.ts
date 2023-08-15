@@ -1,5 +1,5 @@
-import { CoreReducerState } from '../core'
+import { CoreSchema } from '../core'
 
 export interface StoreSchema {
-  core: CoreReducerState
+  core: CoreSchema
 }

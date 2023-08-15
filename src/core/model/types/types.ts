@@ -3,6 +3,6 @@ export enum Theme {
   DARK = 'dark'
 }
 
-export interface CoreReducerState {
+export interface CoreSchema {
   theme: Theme
 }
