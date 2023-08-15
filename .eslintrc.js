@@ -50,6 +50,8 @@ module.exports = {
     'max-len': ['error', { code: 125 }],
     'implicit-arrow-linebreak': 'off',
     'comma-spacing': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   globals: {
     __IS_DEV__: true,

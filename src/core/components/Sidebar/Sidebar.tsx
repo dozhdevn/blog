@@ -39,6 +39,7 @@ export const Sidebar: React.FC = () => {
       <div className={styles.sidebar__links}>
         {links.map((link) => (
           <SidebarLink
+            key={link.to}
             to={link.to}
             title={link.title}
             icon={link.icon}
