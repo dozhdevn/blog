@@ -7,7 +7,7 @@ import { Theme } from 'core/model/types/types'
 
 const LOCAL_STORAGE_THEME_KEY = 'theme'
 
-export const withTheme = <Props,>(Component: React.FC<Props>) => function (props: Props) {
+export const withTheme = <Props,>(Component: React.FC<Props>) => (props: Props) => {
   const theme = useSelector(getTheme)
 
   useLayoutEffect(() => {
