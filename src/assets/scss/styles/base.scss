@@ -8,7 +8,10 @@ input,
 button,
 textarea,
 select {
+  background-color: transparent;
   margin: 0;
+  border: 0;
+  outline: none;
   font: inherit
 }
 

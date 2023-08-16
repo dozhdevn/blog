@@ -1,0 +1,38 @@
+.input {
+  display: flex;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    border: 1px solid var(--icon-color);
+    width: 100%;
+
+    &_active {
+      border-color: var(--accent-color);
+
+      & .input__startIcon {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  &__item {
+    flex: 1;
+    padding: 8px 12px;
+    color: var(--primary-color);
+    font-size: var(--font-size-m);
+  }
+
+  &__label {
+    margin-right: 8px;
+  }
+
+  &__startIcon {
+    width: 14px;
+    height: 14px;
+    margin-left: 17px;
+    color: var(--icon-color);
+  }
+}
