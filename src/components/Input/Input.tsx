@@ -1,4 +1,6 @@
-import React, { forwardRef, useRef, useState } from 'react'
+import React, {
+  forwardRef, memo, useRef, useState,
+} from 'react'
 import cn from 'classnames'
 
 import styles from './Input.module.scss'
@@ -15,7 +17,7 @@ export interface InputProps extends HTMLInputProps {
   classNameLabel?: string
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     label,
     startIcon: StartIcon,
@@ -31,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value)
+    onChange?.(event.target.value)
   }
 
   const onClickContainerHandler = () => {
@@ -74,4 +76,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       </div>
     </div>
   )
-})
+}))

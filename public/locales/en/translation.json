@@ -1,4 +1,7 @@
 {
   "Язык": "EN",
-  "Загрузка": "Loading"
+  "Загрузка": "Loading",
+  "Войти": "Log in",
+  "Введите логин": "Enter username",
+  "Введите пароль": "Enter password"
 }

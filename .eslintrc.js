@@ -26,9 +26,7 @@ module.exports = {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
-    'i18next/no-literal-string': ['error', {
-      markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'color', 'align', 'view'],
-    }],
+    'i18next/no-literal-string': 'off',
     'react/function-component-definition': 'off',
     semi: ['error', 'never'],
     'react/require-default-props': 'off',
@@ -56,6 +54,8 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'react/no-unused-prop-types': 'off',
+    'react/prop-types': 'off',
   },
   globals: {
     __IS_DEV__: true,

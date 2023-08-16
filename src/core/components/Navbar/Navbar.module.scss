@@ -7,12 +7,12 @@
   height: var(--navbar-height);
   background: var(--secondary-bg-color);
   padding: 20px;
+
+  &__links {
+    margin-left: auto;
+  }
 }
 
 .mainLink {
   margin-right: 10px;
-}
-
-.links {
-  margin-left: auto;
 }
