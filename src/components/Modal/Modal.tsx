@@ -8,10 +8,11 @@ export interface ModalProps {
   open: boolean
   onClose?: () => void
   className?: string
+  classNameContent?: string
 }
 
 export const Modal: React.FC<ModalProps> = ({
-  open, onClose, children, className,
+  open, onClose, children, className, classNameContent,
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null)
 
@@ -48,7 +49,7 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <Portal>
       <div className={cn(styles.modal, className)} ref={rootRef}>
-        <div className={styles.modal__content}>
+        <div className={cn(styles.modal__content, classNameContent)}>
           {children}
         </div>
       </div>

@@ -1,0 +1,40 @@
+.typography {
+
+  &__h2 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-black);
+  }
+
+  &__h4 {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__p {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &_default {
+    color: var(--primary-color);
+  }
+
+  &_error {
+    color: var(--red-color);
+  }
+
+  &_align {
+    &_left {
+      text-align: left;
+    }
+  
+    &_center {
+      text-align: center;
+    }
+  
+    &_right {
+      text-align: right;
+    }
+  }
+
+}

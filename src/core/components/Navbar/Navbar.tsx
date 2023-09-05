@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import cn from 'classnames'
 
 import { Button } from 'components/Button'
 
 import { useTranslation } from 'react-i18next'
-import { LoginModal } from 'feature/AuthByUserName'
+import { LoginModal } from 'features/AuthByUserName'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { getAuthData, userActions } from 'entities/User'
+import { useSelector } from 'react-redux'
+
 import styles from './Navbar.module.scss'
 
 export interface NavbarProps {
@@ -14,6 +18,9 @@ export interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation()
+  const dispatch = useAppDispatch()
+
+  const authData = useSelector(getAuthData)
 
   const [openLoginModal, setOpenLoginModal] = useState(false)
 
@@ -25,10 +32,18 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
     setOpenLoginModal(false)
   }
 
+  const logOutHandler = useCallback(() => {
+    dispatch(userActions.logOut())
+  }, [dispatch])
+
+  const loginButton = authData
+    ? <Button onClick={logOutHandler}>Выйти</Button>
+    : <Button onClick={openLoginModalHandler}>{t('Войти')}</Button>
+
   return (
     <div className={cn(styles.navbar, className)}>
       <div className={styles.navbar__links}>
-        <Button onClick={openLoginModalHandler}>{t('Войти')}</Button>
+        {loginButton}
       </div>
       <LoginModal open={openLoginModal} onClose={closeLoginModalHandler} />
     </div>

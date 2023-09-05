@@ -8,6 +8,7 @@ import { Navbar } from 'core/components/Navbar'
 import { Sidebar } from 'core/components/Sidebar'
 import { withRedux } from 'core/hocs/withRedux'
 import { withErrorBoundary } from 'core/hocs/withErrorBoundary'
+import { withAuth } from 'core/hocs/withAuth'
 import { withTheme } from '../core'
 
 import './app.scss'
@@ -29,4 +30,4 @@ function App() {
   )
 }
 
-export default compose(withRedux, withTheme, withErrorBoundary)(App)
+export default compose(withRedux, withTheme, withErrorBoundary, withAuth)(App)
