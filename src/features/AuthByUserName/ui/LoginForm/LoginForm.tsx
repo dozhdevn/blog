@@ -9,7 +9,8 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'hooks/useAppDispatch'
 import { getAuthData } from 'entities/User'
 import { Typography } from 'components/Typography'
-import { DynamicModuleLoader, ReducersList } from 'core/layouts/DynamicModuleLoader'
+import { ReducersList } from 'core/layouts/DynamicModuleLoader'
+import { withAsyncReducers } from 'core/hocs/withAsyncReducers'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername'
@@ -64,29 +65,33 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
   }, [authData, onClose])
 
   return (
-    <DynamicModuleLoader reducers={initialReducers}>
-      <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
-        <Typography variant='title' className={styles.loginForm__title}>Войти</Typography>
-        <Input
-          placeholder={t('Введите логин')}
-          onChange={onChangeUsername}
-          value={username}
-          className={styles.loginForm__input}
-          error={!!error}
-        />
-        <Input
-          placeholder={t('Введите пароль')}
-          onChange={onChangePassword}
-          value={password}
-          type='password'
-          className={styles.loginForm__input}
-          error={!!error}
-          helperText={error}
-        />
-        <Button disabled={isLoading}>{t('Войти')}</Button>
-      </form>
-    </DynamicModuleLoader>
+    <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
+      <Typography variant='title' className={styles.loginForm__title}>Войти</Typography>
+      <Input
+        placeholder={t('Введите логин')}
+        onChange={onChangeUsername}
+        value={username}
+        className={styles.loginForm__input}
+        error={!!error}
+      />
+      <Input
+        placeholder={t('Введите пароль')}
+        onChange={onChangePassword}
+        value={password}
+        type='password'
+        className={styles.loginForm__input}
+        error={!!error}
+        helperText={error}
+      />
+      <Button disabled={isLoading}>{t('Войти')}</Button>
+    </form>
   )
 })
 
-export default LoginForm
+const config = {
+  reducers: initialReducers,
+}
+
+const LoginFormWithAsyncReducers = withAsyncReducers(LoginForm, config)
+
+export default LoginFormWithAsyncReducers
