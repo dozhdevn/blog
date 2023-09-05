@@ -9,8 +9,9 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'hooks/useAppDispatch'
 import { getAuthData } from 'entities/User'
 import { Typography } from 'components/Typography'
+import { DynamicModuleLoader, ReducersList } from 'core/layouts/DynamicModuleLoader'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername'
 import { getLoginPassword } from '../../model/selectors/getLoginPasswod'
 import { getLoginLoading } from '../../model/selectors/getLoginLoading'
@@ -18,12 +19,16 @@ import { getLoginError } from '../../model/selectors/getLoginError'
 
 import styles from './LoginForm.module.scss'
 
+const initialReducers: ReducersList = {
+  login: loginReducer,
+}
+
 export interface LoginFormProps {
   onClose?: () => void
   className?: string
 }
 
-export const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
+const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
   const dispatch = useAppDispatch()
 
   const authData = useSelector(getAuthData)
@@ -59,24 +64,29 @@ export const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className })
   }, [authData, onClose])
 
   return (
-    <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
-      <Typography variant='title' className={styles.loginForm__title}>Войти</Typography>
-      <Input
-        placeholder={t('Введите логин')}
-        onChange={onChangeUsername}
-        value={username}
-        className={styles.loginForm__input}
-      />
-      <Input
-        placeholder={t('Введите пароль')}
-        onChange={onChangePassword}
-        value={password}
-        type='password'
-        className={styles.loginForm__input}
-        error={!!error}
-        helperText={error}
-      />
-      <Button disabled={isLoading}>{t('Войти')}</Button>
-    </form>
+    <DynamicModuleLoader reducers={initialReducers}>
+      <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
+        <Typography variant='title' className={styles.loginForm__title}>Войти</Typography>
+        <Input
+          placeholder={t('Введите логин')}
+          onChange={onChangeUsername}
+          value={username}
+          className={styles.loginForm__input}
+          error={!!error}
+        />
+        <Input
+          placeholder={t('Введите пароль')}
+          onChange={onChangePassword}
+          value={password}
+          type='password'
+          className={styles.loginForm__input}
+          error={!!error}
+          helperText={error}
+        />
+        <Button disabled={isLoading}>{t('Войти')}</Button>
+      </form>
+    </DynamicModuleLoader>
   )
 })
+
+export default LoginForm

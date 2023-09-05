@@ -1,6 +1,8 @@
 import { Modal } from 'components/Modal'
-import React from 'react'
-import { LoginForm } from '../LoginForm'
+import React, { Suspense } from 'react'
+
+import { Loader } from 'components/Loader'
+import { LoginFormLazy } from '../LoginForm/LoginForm.lazy'
 
 import styles from './LoginModal.module.scss'
 
@@ -11,6 +13,8 @@ export interface LoginModalProps {
 
 export const LoginModal: React.FC<LoginModalProps> = ({ open, onClose }) => (
   <Modal open={open} onClose={onClose} classNameContent={styles.loginModal__content}>
-    <LoginForm onClose={onClose} />
+    <Suspense fallback={<Loader />}>
+      <LoginFormLazy onClose={onClose} />
+    </Suspense>
   </Modal>
 )

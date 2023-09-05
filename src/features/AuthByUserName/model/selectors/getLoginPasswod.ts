@@ -1,3 +1,3 @@
-import { StoreSchema } from 'store/types'
+import { StoreSchema } from 'store/config/types'
 
-export const getLoginPassword = (state: StoreSchema) => state.login.password
+export const getLoginPassword = (state: StoreSchema) => state?.login?.password || ''

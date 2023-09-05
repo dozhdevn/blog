@@ -1,3 +1,3 @@
-import { StoreSchema } from 'store/types'
+import { StoreSchema } from 'store/config/types'
 
-export const getLoginLoading = (state: StoreSchema) => state.login.isLoading
+export const getLoginLoading = (state: StoreSchema) => state?.login?.isLoading || false

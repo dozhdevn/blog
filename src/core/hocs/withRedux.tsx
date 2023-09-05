@@ -1,8 +1,12 @@
 import { Provider } from 'react-redux'
-import { store } from 'store'
+import { createReduxStore } from 'store'
 
-export const withRedux = <Props,>(Component: React.FC<Props>) => (props: Props) => (
-  <Provider store={store}>
-    <Component {...props} />
-  </Provider>
-)
+export const withRedux = <Props,>(Component: React.FC<Props>) => (props: Props) => {
+  const store = createReduxStore()
+
+  return (
+    <Provider store={store}>
+      <Component {...props} />
+    </Provider>
+  )
+}
