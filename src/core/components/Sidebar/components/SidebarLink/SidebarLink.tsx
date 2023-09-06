@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import cn from 'classnames'
 
 import { AppLink } from 'components/AppLink'
@@ -14,7 +14,7 @@ export interface SidebarLinkProps {
   className?: string
 }
 
-export const SidebarLink:React.FC<SidebarLinkProps> = ({
+export const SidebarLink:React.FC<SidebarLinkProps> = memo(({
   to, title, icon: Icon, collapsed, className,
 }) => (
   <AppLink
@@ -32,4 +32,4 @@ export const SidebarLink:React.FC<SidebarLinkProps> = ({
       {title}
     </span>
   </AppLink>
-)
+))
