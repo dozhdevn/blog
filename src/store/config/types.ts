@@ -3,6 +3,8 @@ import { UserSchema } from 'entities/User'
 import {
   ReducersMapObject, AnyAction, CombinedState, Reducer, EnhancedStore,
 } from '@reduxjs/toolkit'
+import { AxiosInstance } from 'axios'
+import { AppDispatch } from 'store'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -25,4 +27,15 @@ export interface ReducerManager {
 export interface ReduxStoreWithManager
   extends EnhancedStore<StoreSchema, AnyAction> {
   reducerManager: ReducerManager
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance
+}
+
+export interface ThunkConfig<T = string> {
+  dispatch: AppDispatch
+  rejectValue: T
+  extra: ThunkExtraArg
+  state: StoreSchema
 }

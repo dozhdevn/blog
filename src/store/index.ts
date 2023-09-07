@@ -1,7 +1,10 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import {
+  CombinedState, Reducer, ReducersMapObject, configureStore,
+} from '@reduxjs/toolkit'
 import { coreReducer } from 'core'
 import { userReducer } from 'entities/User'
-import { StoreSchema } from './config/types'
+import { $axios } from 'core/api/api'
+import { StoreSchema, ThunkExtraArg } from './config/types'
 import { createReducerManager } from './config/reducerManager'
 
 export const createReduxStore = (initialState?: StoreSchema) => {
@@ -12,10 +15,20 @@ export const createReduxStore = (initialState?: StoreSchema) => {
 
   const reducerManager = createReducerManager(rootReducers)
 
-  const store = configureStore<StoreSchema>({
-    reducer: reducerManager.reduce,
+  const extraArgument: ThunkExtraArg = {
+    api: $axios,
+  }
+
+  const store = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
     devTools: __IS__DEV__,
     preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }),
   })
   // @ts-ignore
   store.reducerManager = reducerManager

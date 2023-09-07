@@ -12,6 +12,7 @@ export interface WebpackOptions {
   paths: WebpackPath
   isDev: boolean
   port: number
+  apiUrl: string
 }
 
-export type WebpackEnv = Pick<WebpackOptions, 'mode' | 'port'>
+export type WebpackEnv = Pick<WebpackOptions, 'mode' | 'port' | 'apiUrl'>
