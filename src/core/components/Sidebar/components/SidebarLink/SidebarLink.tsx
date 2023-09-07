@@ -27,7 +27,7 @@ export const SidebarLink:React.FC<SidebarLinkProps> = memo(({
     to={to}
     exact
   >
-    <Icon className={styles.sidebarLink__icon} />
+    {Icon && <Icon className={styles.sidebarLink__icon} />}
     <span className={styles.sidebarLink__title}>
       {title}
     </span>

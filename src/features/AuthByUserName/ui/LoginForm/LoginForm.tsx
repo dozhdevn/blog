@@ -60,7 +60,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
 
   useEffect(() => {
     if (authData) {
-      onClose()
+      onClose?.()
     }
   }, [authData, onClose])
 

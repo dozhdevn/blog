@@ -13,7 +13,7 @@ interface WithAsyncReducersConfig {
   removeAfterUnmount?: boolean
 }
 
-export const withAsyncReducers = <Props,> (Component: React.FC<Props>,
+export const withAsyncReducers = <Props extends Record<string, unknown>> (Component: React.FC<Props>,
   config: WithAsyncReducersConfig) => (props: Props) => {
     const store = useStore() as ReduxStoreWithManager
     const dispatch = useAppDispatch()

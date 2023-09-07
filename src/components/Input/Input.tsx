@@ -44,7 +44,7 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
   }
 
   const onClickContainerHandler = () => {
-    inputRef.current.focus()
+    inputRef?.current?.focus()
   }
 
   const focusHandler = () => {

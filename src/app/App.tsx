@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Suspense } from 'react'
 import { compose } from 'redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -13,21 +12,18 @@ import { withTheme } from '../core'
 
 import './app.scss'
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Загрузка</div>}>
-        <div className='app'>
-          <Navbar />
-          <div className='content-page'>
-            <Sidebar />
-            <AppRouter />
-          </div>
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Suspense fallback={<div>Загрузка</div>}>
+      <div className='app'>
+        <Navbar />
+        <div className='content-page'>
+          <Sidebar />
+          <AppRouter />
         </div>
-      </Suspense>
-    </BrowserRouter>
+      </div>
+    </Suspense>
+  </BrowserRouter>
+)
 
-  )
-}
-
-export default compose(withRedux, withTheme, withErrorBoundary, withAuth)(App)
+export default compose<React.FC>(withRedux, withTheme, withErrorBoundary, withAuth)(App)

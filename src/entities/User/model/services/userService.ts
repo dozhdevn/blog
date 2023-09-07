@@ -13,7 +13,7 @@ export class UserService {
     localStorage.setItem(USER_LOCALE_STORAGE_KEY, JSON.stringify(user))
   }
 
-  public static getUserLocalStorage = () => JSON.parse(localStorage.getItem(USER_LOCALE_STORAGE_KEY))
+  public static getUserLocalStorage = () => JSON.parse(localStorage.getItem(USER_LOCALE_STORAGE_KEY) || '')
 
   public static removeUserLocalStorage = () => localStorage.removeItem(USER_LOCALE_STORAGE_KEY)
 
