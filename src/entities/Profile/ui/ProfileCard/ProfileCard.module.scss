@@ -1,0 +1,17 @@
+.profileCard {
+  max-width: 1160px;
+  padding: 50px;
+  background: var(--dark-bg-color);
+  border-radius: 32px;
+
+  &__fields {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__field {
+    max-width: 49%;
+    margin-bottom: 20px;
+  }
+}

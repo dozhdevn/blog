@@ -92,6 +92,4 @@ const config = {
   reducers: initialReducers,
 }
 
-const LoginFormWithAsyncReducers = withAsyncReducers(LoginForm, config)
-
-export default LoginFormWithAsyncReducers
+export default withAsyncReducers(LoginForm, config)

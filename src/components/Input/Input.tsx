@@ -48,7 +48,9 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
   }
 
   const focusHandler = () => {
-    setFocused(true)
+    if (!otherProps.readOnly) {
+      setFocused(true)
+    }
   }
 
   const blurHandler = () => {

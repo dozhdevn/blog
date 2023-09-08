@@ -7,6 +7,7 @@ export interface SideBarLinkType {
   to: RoutePath,
   title: string,
   icon: React.VFC<React.SVGProps<SVGSVGElement>>
+  visibleOnlyAuth?: boolean
 }
 
 export const sidebarLinksList: SideBarLinkType[] = [
@@ -24,5 +25,6 @@ export const sidebarLinksList: SideBarLinkType[] = [
     to: RoutePath.PROFILE,
     title: 'Профиль',
     icon: ProfileIcon,
+    visibleOnlyAuth: true,
   },
 ]

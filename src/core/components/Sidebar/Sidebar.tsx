@@ -3,6 +3,8 @@ import cn from 'classnames'
 
 import ArrowHorizontal from 'assets/icons/svg/arrow-horizontal.svg'
 import { IconButton } from 'components/IconButton'
+import { useSelector } from 'react-redux'
+import { getIsAuth } from 'entities/User/model/selectors/getIsAuth'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import { LanguageSwitch } from '../LanguageSwitch'
 
@@ -11,21 +13,30 @@ import { SidebarLink } from './components/SidebarLink'
 import { sidebarLinksList } from './model/items'
 
 export const Sidebar: React.FC = () => {
+  const isAuth = useSelector(getIsAuth)
   const [collapsed, setCollapsed] = useState(false)
 
   const handleToggleColapsed = () => {
     setCollapsed((prev) => !prev)
   }
 
-  const sidebarLinks = sidebarLinksList.map(({ to, title, icon }) => (
-    <SidebarLink
-      key={to}
-      to={to}
-      title={title}
-      icon={icon}
-      collapsed={collapsed}
-    />
-  ))
+  const sidebarLinks = sidebarLinksList.map(({
+    to, title, icon, visibleOnlyAuth,
+  }) => {
+    if (visibleOnlyAuth && !isAuth) {
+      return null
+    }
+
+    return (
+      <SidebarLink
+        key={to}
+        to={to}
+        title={title}
+        icon={icon}
+        collapsed={collapsed}
+      />
+    )
+  })
 
   return (
     <div

@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
 import { AppDispatch } from 'store'
+import { ProfileSchema } from 'entities/Profile'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -12,6 +13,7 @@ export interface StoreSchema {
   user: UserSchema
 
   // async reducers
+  profile?: ProfileSchema
   login?: LoginSchema
 }
 
