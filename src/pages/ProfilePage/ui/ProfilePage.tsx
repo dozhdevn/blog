@@ -7,6 +7,9 @@ import { getAuthData } from 'entities/User'
 import { useAppDispatch } from 'hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 
+import { Avatar } from 'components/Avatar'
+import styles from './ProfilePage.module.scss'
+
 const ProfilePage: React.FC = () => {
   const dispatch = useAppDispatch()
   const user = useSelector(getAuthData)
@@ -19,7 +22,8 @@ const ProfilePage: React.FC = () => {
   }, [dispatch, user])
 
   return (
-    <div>
+    <div className={styles.profilePage}>
+      <Avatar size={128} src={profile?.avatar} />
       <ProfileCard profile={profile} />
     </div>
   )
