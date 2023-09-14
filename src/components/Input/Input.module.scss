@@ -18,6 +18,10 @@
         color: var(--accent-color);
       }
     }
+
+    &_readonly {
+      opacity: 0.6;
+    }
   }
 
   &__item {

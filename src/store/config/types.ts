@@ -6,6 +6,7 @@ import {
 import { AxiosInstance } from 'axios'
 import { AppDispatch } from 'store'
 import { ProfileSchema } from 'entities/Profile'
+import { EditableProfileSchema } from 'features/EditableProfile'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -14,6 +15,7 @@ export interface StoreSchema {
 
   // async reducers
   profile?: ProfileSchema
+  editProfile?: EditableProfileSchema
   login?: LoginSchema
 }
 

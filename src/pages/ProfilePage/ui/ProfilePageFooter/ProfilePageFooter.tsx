@@ -1,29 +1,34 @@
-import React, { useState } from 'react'
-
 import { Button } from 'components/Button'
 import { useAppDispatch } from 'hooks/useAppDispatch'
-import { profileActions } from 'entities/Profile'
 import { useSelector } from 'react-redux'
-import { getIsEditableProfile } from 'entities/Profile/model/selectors/getIsEdutableProfile'
+import { getIsEditableProfile } from 'features/EditableProfile/model/selectors/getIsEditableProfile'
+import { editableProfileActions, editProfileCard } from 'features/EditableProfile'
+import { getProfile } from 'entities/Profile/model/selectors/getProfile'
 import styles from './ProfilePageFooter.module.scss'
 
 export const ProfilePageFooter = () : JSX.Element => {
   const dispatch = useAppDispatch()
 
+  const profile = useSelector(getProfile)
+
   const isEditable = useSelector(getIsEditableProfile)
 
   const onEdit = () => {
-    dispatch(profileActions.setIsEditable(true))
+    dispatch(editableProfileActions.setIsEditable(true))
   }
 
-  const cancelEdit = () => {
-    dispatch(profileActions.setIsEditable(false))
+  const onCancelEdit = () => {
+    dispatch(editableProfileActions.cancelEditable(profile))
+  }
+
+  const onSave = () => {
+    dispatch(editProfileCard())
   }
 
   const buttons = isEditable ? (
     <>
-      <Button variant='contained'>Сохранить</Button>
-      <Button variant='outlined' onClick={cancelEdit}>Отмена</Button>
+      <Button variant='contained' onClick={onSave}>Сохранить</Button>
+      <Button variant='outlined' onClick={onCancelEdit}>Отмена</Button>
     </>
   )
     : <Button variant='contained' onClick={onEdit}>Редактировать</Button>

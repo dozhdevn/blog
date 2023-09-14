@@ -6,7 +6,7 @@ import cn from 'classnames'
 import { Typography } from 'components/Typography'
 import styles from './Input.module.scss'
 
-type HTMLInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 export interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
@@ -14,6 +14,7 @@ export interface InputProps extends HTMLInputProps {
   label?: string
   startIcon?: React.VFC<React.SVGProps<SVGSVGElement>>
   error?: boolean
+  readOnly?: boolean
   helperText?: string
   className?: string
   classNameContainer?: string
@@ -33,6 +34,7 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
     classNameLabel,
     value,
     onChange,
+    readOnly,
     ...otherProps
   } = props
 
@@ -48,7 +50,7 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
   }
 
   const focusHandler = () => {
-    if (!otherProps.readOnly) {
+    if (!readOnly) {
       setFocused(true)
     }
   }
@@ -75,7 +77,10 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
       <div
         className={cn(
           styles.input__container,
-          { [styles.input__container_active]: focused },
+          {
+            [styles.input__container_active]: focused,
+            [styles.input__container_readonly]: readOnly,
+          },
           classNameContainer,
         )}
         onFocus={focusHandler}
@@ -86,6 +91,7 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
         <input
           value={value}
           onChange={onChangeHandler}
+          readOnly={readOnly}
           {...otherProps}
           className={cn(styles.input__item,classNameInput)}
           ref={inputRef}

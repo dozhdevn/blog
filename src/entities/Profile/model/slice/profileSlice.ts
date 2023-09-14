@@ -1,20 +1,19 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ProfileSchema } from '../types/profile'
+import { Profile, ProfileSchema } from '../types/profile'
 import { fetchProfile } from '../services/fetchProfile/fetchProfile'
 
 const initialState: ProfileSchema = {
   profile: null,
   isLoading: false,
   error: '',
-  isEditable: false,
 }
 
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setIsEditable: (state, action: PayloadAction<boolean>) => {
-      state.isEditable = action.payload
+    setProfile: (state, action:PayloadAction<Profile>) => {
+      state.profile = action.payload
     },
   },
   extraReducers: (builder) => {
