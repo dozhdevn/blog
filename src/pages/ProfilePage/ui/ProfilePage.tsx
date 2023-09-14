@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 
-import { withAsyncReducers } from 'core/hocs/withAsyncReducers'
 import { ProfileCard, fetchProfile, profileReducer } from 'entities/Profile'
 import { getProfile } from 'entities/Profile/model/selectors/getProfile'
 import { getAuthData } from 'entities/User'
@@ -8,12 +7,22 @@ import { useAppDispatch } from 'hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 
 import { Avatar } from 'components/Avatar'
+import { getProfileLoading } from 'entities/Profile/model/selectors/getProfileLoading'
+import { Loader } from 'components/Loader'
+import { DynamicModuleLoader } from 'core/layouts/DynamicModuleLoader'
 import styles from './ProfilePage.module.scss'
+
+const config = {
+  reducers: {
+    profile: profileReducer,
+  },
+}
 
 const ProfilePage: React.FC = () => {
   const dispatch = useAppDispatch()
   const user = useSelector(getAuthData)
   const profile = useSelector(getProfile)
+  const profileLoading = useSelector(getProfileLoading)
 
   useEffect(() => {
     if (user) {
@@ -21,19 +30,27 @@ const ProfilePage: React.FC = () => {
     }
   }, [dispatch, user])
 
+  const renderContent = useMemo(() => {
+    if (profileLoading) {
+      return <Loader className={styles.profilePage__loader} />
+    }
+
+    return (
+      <>
+        <Avatar size={128} src={profile?.avatar} />
+        <ProfileCard profile={profile} />
+      </>
+    )
+  }, [profileLoading, profile])
+
   return (
-    <div className={styles.profilePage}>
-      <Avatar size={128} src={profile?.avatar} />
-      <ProfileCard profile={profile} />
-    </div>
+    <DynamicModuleLoader {...config}>
+      <div className={styles.profilePage}>
+        {renderContent}
+      </div>
+    </DynamicModuleLoader>
+
   )
 }
 
-const config = {
-  reducers: {
-    profile: profileReducer,
-  },
-
-}
-
-export default withAsyncReducers(ProfilePage, config)
+export default ProfilePage

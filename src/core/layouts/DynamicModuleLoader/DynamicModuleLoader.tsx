@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch } from 'hooks/useAppDispatch'
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useStore } from 'react-redux'
 import { ReduxStoreWithManager, StoreSchemaKey } from 'store/config/types'
 
@@ -21,7 +21,7 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
   const store = useStore() as ReduxStoreWithManager
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     Object.entries(reducers).forEach(([key, reducer]) => {
       store.reducerManager.add(key as StoreSchemaKey, reducer)
       dispatch({ type: `@INIT ${key} reducer` })

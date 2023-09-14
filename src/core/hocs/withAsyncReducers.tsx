@@ -1,6 +1,6 @@
 import { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch } from 'hooks/useAppDispatch'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { useStore } from 'react-redux'
 import { ReduxStoreWithManager, StoreSchemaKey } from 'store/config/types'
 
@@ -17,10 +17,9 @@ export const withAsyncReducers = <Props extends Record<string, unknown>> (Compon
   config: WithAsyncReducersConfig) => (props: Props) => {
     const store = useStore() as ReduxStoreWithManager
     const dispatch = useAppDispatch()
-
     const { reducers, removeAfterUnmount = true } = config
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       Object.entries(reducers).forEach(([key, reducer]) => {
         store.reducerManager.add(key as StoreSchemaKey, reducer)
         dispatch({ type: `@INIT ${key} reducer` })
