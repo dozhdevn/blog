@@ -10,7 +10,11 @@ import { Avatar } from 'components/Avatar'
 import { getProfileLoading } from 'entities/Profile/model/selectors/getProfileLoading'
 import { Loader } from 'components/Loader'
 import { DynamicModuleLoader } from 'core/layouts/DynamicModuleLoader'
+import { getIsEditableProfile } from 'entities/Profile/model/selectors/getIsEdutableProfile'
+import { getProfileError } from 'entities/Profile/model/selectors/getProfileError'
+import { Typography } from 'components/Typography'
 import styles from './ProfilePage.module.scss'
+import { ProfilePageFooter } from './ProfilePageFooter'
 
 const config = {
   reducers: {
@@ -23,6 +27,8 @@ const ProfilePage: React.FC = () => {
   const user = useSelector(getAuthData)
   const profile = useSelector(getProfile)
   const profileLoading = useSelector(getProfileLoading)
+  const profileError = useSelector(getProfileError)
+  const isEditableProfile = useSelector(getIsEditableProfile)
 
   useEffect(() => {
     if (user) {
@@ -34,14 +40,21 @@ const ProfilePage: React.FC = () => {
     if (profileLoading) {
       return <Loader className={styles.profilePage__loader} />
     }
-
+    if (profileError) {
+      return (
+        <>
+          <Typography color='error' variant='title'>Произошла ошибка</Typography>
+          <Typography color='error' variant='subTitle'>Попробуйте перезагрузить страницу</Typography>
+        </>
+      )
+    }
     return (
       <>
         <Avatar size={128} src={profile?.avatar} />
-        <ProfileCard profile={profile} />
+        <ProfileCard profile={profile} renderFooter={ProfilePageFooter} isEditable={isEditableProfile} />
       </>
     )
-  }, [profileLoading, profile])
+  }, [profileLoading, profile, isEditableProfile, profileError])
 
   return (
     <DynamicModuleLoader {...config}>

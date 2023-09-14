@@ -3,6 +3,7 @@
   padding: 8px 16px;
   color: var(--primary-color);
   transition: all .2s;
+  height: 36px;
 
   &_clear {
     margin: 0;
@@ -11,13 +12,18 @@
     outline: none;
   }
 
-  &_outline {
+  &_outlined {
     border: 1px solid var(--icon-color);
-    border-radius: 16px;
+    border-radius: 7px;
 
     &:hover {
       border-color: var(--accent-color);
     }
+  }
+
+  &_contained {
+    border-radius: 7px;
+    background: var(--light-bg-color);
   }
 
   &:disabled {

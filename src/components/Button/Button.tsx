@@ -3,7 +3,7 @@ import React from 'react'
 
 import styles from './Button.module.scss'
 
-export type ButtonType = 'clear' | 'outline'
+export type ButtonType = 'clear' | 'outlined' | 'contained'
 
 export type ButtonSize = 'medium' | 'large'
 

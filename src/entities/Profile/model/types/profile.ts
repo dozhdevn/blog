@@ -16,5 +16,6 @@ export interface Profile {
 export interface ProfileSchema {
   profile: Profile | null
   isLoading: boolean
+  isEditable: boolean
   error?: string
 }
