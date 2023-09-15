@@ -1,3 +1,4 @@
+import { Currency } from 'constants/currency'
 import React, { memo } from 'react'
 import cn from 'classnames'
 
@@ -5,7 +6,10 @@ import { Input } from 'components/Input'
 
 import { Profile } from 'entities/Profile'
 
+import Select from 'components/Select'
 import styles from './ProfileCard.module.scss'
+
+const currencyOptions = Object.entries(Currency).map(([_, value]) => ({ label: value, value }))
 
 export interface ProfileCardProps {
   profile: Profile | null
@@ -16,6 +20,7 @@ export interface ProfileCardProps {
   onChangeAvatar: (value: string) => void
   onChangeAge: (value: string) => void
   onChangeCity: (value: string) => void
+  onChangeCurrency: (value: Currency) => void
   renderFooter?: () => JSX.Element
   className?: string
 }
@@ -29,6 +34,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(({
   onChangeAvatar,
   onChangeAge,
   onChangeCity,
+  onChangeCurrency,
   renderFooter,
   className,
 }) => {
@@ -64,7 +70,15 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(({
         readOnly={!isEditable}
         onChange={onChangeAge}
       />
-      <Input value={profile?.currency} className={styles.profileCard__field} readOnly={!isEditable} />
+
+      <Select
+        value={profile?.currency}
+        options={currencyOptions}
+        onChange={onChangeCurrency}
+        className={styles.profileCard__field}
+        disabled={!isEditable}
+      />
+
       <Input
         value={profile?.city}
         className={styles.profileCard__field}

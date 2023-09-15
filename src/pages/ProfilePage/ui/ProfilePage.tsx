@@ -1,3 +1,4 @@
+import { Currency } from 'constants/currency'
 import React, { useCallback, useEffect, useMemo } from 'react'
 
 import { ProfileCard, fetchProfile, profileReducer } from 'entities/Profile'
@@ -64,6 +65,10 @@ const ProfilePage: React.FC = () => {
     dispatch(editableProfileActions.updateProfileForm({ city: value }))
   }, [])
 
+  const onChangeCurrency = useCallback((value: Currency) => {
+    dispatch(editableProfileActions.updateProfileForm({ currency: value }))
+  }, [])
+
   const renderContent = useMemo(() => {
     if (profileLoading || prifileEditLoading) {
       return <Loader className={styles.profilePage__loader} />
@@ -89,6 +94,7 @@ const ProfilePage: React.FC = () => {
           onChangeAvatar={onChangeAvatar}
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
+          onChangeCurrency={onChangeCurrency}
         />
       </>
     )
