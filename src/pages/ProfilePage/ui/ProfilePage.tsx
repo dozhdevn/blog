@@ -1,4 +1,3 @@
-import { Currency } from 'constants/currency'
 import React, { useCallback, useEffect, useMemo } from 'react'
 
 import { ProfileCard, fetchProfile, profileReducer } from 'entities/Profile'
@@ -16,6 +15,8 @@ import { getIsEditableProfile } from 'features/EditableProfile/model/selectors/g
 import { editableProfileActions, editableProfileReducer } from 'features/EditableProfile'
 import { getProfileForm } from 'features/EditableProfile/model/selectors/getProfileForm'
 import { getLoadingEditPlayer } from 'features/EditableProfile/model/selectors/getLoadingEditPlayer'
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
 import styles from './ProfilePage.module.scss'
 import { ProfilePageFooter } from './ProfilePageFooter'
 
@@ -69,6 +70,10 @@ const ProfilePage: React.FC = () => {
     dispatch(editableProfileActions.updateProfileForm({ currency: value }))
   }, [])
 
+  const onChangeCountry = useCallback((value: Country) => {
+    dispatch(editableProfileActions.updateProfileForm({ country: value }))
+  }, [])
+
   const renderContent = useMemo(() => {
     if (profileLoading || prifileEditLoading) {
       return <Loader className={styles.profilePage__loader} />
@@ -95,6 +100,7 @@ const ProfilePage: React.FC = () => {
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
           onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
         />
       </>
     )
