@@ -18,6 +18,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
         throw new Error()
       }
       UserService.setUserLocalStorage(response.data)
+      UserService.setAccessToken(response.data.username)
       dispatch(userActions.setAuthData(response.data))
 
       return response.data

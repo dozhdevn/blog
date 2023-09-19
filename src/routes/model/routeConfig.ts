@@ -20,6 +20,7 @@ export const routerConfig: RouterConfig[] = [
     path: RoutePath.PROFILE,
     component: ProfilePage,
     exact: true,
+    private: true,
   },
   {
     path: RoutePath.NOT_FOUND,

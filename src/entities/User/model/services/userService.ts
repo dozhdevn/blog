@@ -13,12 +13,16 @@ export class UserService {
     localStorage.setItem(USER_LOCALE_STORAGE_KEY, JSON.stringify(user))
   }
 
-  public static getUserLocalStorage = () => JSON.parse(localStorage.getItem(USER_LOCALE_STORAGE_KEY) || '')
+  public static getUserLocalStorage = () => localStorage.getItem(USER_LOCALE_STORAGE_KEY) || ''
 
   public static removeUserLocalStorage = () => localStorage.removeItem(USER_LOCALE_STORAGE_KEY)
 
   public static setAccessToken = (accessToken: string) => {
     this.cookies.set('access_token', accessToken)
+  }
+
+  public static removeAccessToken = () => {
+    this.cookies.remove('access_token', { path: '/' })
   }
 
   public static getAccessToken = () => this.cookies.get('access_token')
