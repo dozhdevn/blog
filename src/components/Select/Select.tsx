@@ -10,11 +10,13 @@ import styles from './Select.module.scss'
 import { Option } from './components/Option/Option'
 
 const Select = <T,>({
-  value, options, placeholder, open, disabled, onChange, onClose, className,
+  value, options, placeholder, label, open, disabled, onChange, onClose, className,
 }: SelectProps<T>): JSX.Element => {
   const [openSelect, setOpenSelect] = useState(!!open)
 
-  const label = options.find((opt) => opt.value === value)?.label
+  const labelView = options.find((opt) => opt.value === value)?.label
+
+  const labelComponent = label && <span className={styles.select__label}>{label}</span>
 
   const rootRef = useRef<HTMLDivElement | null>(null)
 
@@ -53,29 +55,30 @@ const Select = <T,>({
 
   return (
     <div
+      className={cn(styles.select, {
+        [styles.select_open]: openSelect,
+        [styles.select_disabled]: disabled,
+      }, className)}
       ref={rootRef}
-      className={cn(
-        styles.select,
-        {
-          [styles.select_open]: openSelect,
-          [styles.select_disabled]: disabled,
-        },
-        className,
-      )}
     >
-      <div className={styles.select__arrow}>
-        <ArrowIcon />
-      </div>
-
+      {labelComponent}
       <div
-        onClick={handlePlaceholderClick}
-        className={styles.select__placeholder}
+        className={styles.select__container}
       >
-        {label || placeholder}
+        <div className={styles.select__arrow}>
+          <ArrowIcon />
+        </div>
 
+        <div
+          onClick={handlePlaceholderClick}
+          className={styles.select__placeholder}
+        >
+          {labelView || placeholder}
+
+        </div>
+
+        {openSelect && <ul className={styles.select__list}>{dropdownList}</ul>}
       </div>
-
-      {openSelect && <ul className={styles.select__list}>{dropdownList}</ul>}
     </div>
   )
 }

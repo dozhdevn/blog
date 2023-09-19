@@ -1,5 +1,5 @@
-import { Country } from 'constants/country'
-import { Currency } from 'constants/currency'
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
 
 export interface Profile {
   id?: string

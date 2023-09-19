@@ -7,11 +7,14 @@ import { Profile } from 'entities/Profile'
 
 import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
+
+import { ProfileErrors } from 'features/EditableProfile'
 import styles from './ProfileCard.module.scss'
 
 export interface ProfileCardProps {
   profile: Profile | null
   isEditable: boolean
+  errors?: ProfileErrors
   onChangeFirstname: (value: string) => void
   onChangeUsername: (value: string) => void
   onChangeLastname: (value: string) => void
@@ -27,6 +30,7 @@ export interface ProfileCardProps {
 export const ProfileCard: React.FC<ProfileCardProps> = memo(({
   profile,
   isEditable,
+  errors,
   onChangeFirstname,
   onChangeUsername,
   onChangeLastname,
@@ -41,30 +45,41 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(({
   const content = (
     <div className={styles.profileCard__fields}>
       <Input
+        label='Имя пользователя'
         value={profile?.firstname}
         className={styles.profileCard__field}
         readOnly={!isEditable}
         onChange={onChangeFirstname}
+        error={!!errors?.firstname}
+        helperText={errors?.firstname}
       />
       <Input
+        label='Логин'
         value={profile?.username}
         className={styles.profileCard__field}
         readOnly={!isEditable}
         onChange={onChangeUsername}
+        error={!!errors?.username}
+        helperText={errors?.username}
       />
       <Input
+        label='Фамилия'
         value={profile?.lastname}
         className={styles.profileCard__field}
         readOnly={!isEditable}
         onChange={onChangeLastname}
+        error={!!errors?.lastname}
+        helperText={errors?.lastname}
       />
       <Input
+        label='Аватар'
         value={profile?.avatar}
         className={styles.profileCard__field}
         readOnly={!isEditable}
         onChange={onChangeAvatar}
       />
       <Input
+        label='Возраст'
         value={String(profile?.age)}
         className={styles.profileCard__field}
         readOnly={!isEditable}
@@ -79,6 +94,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(({
       />
 
       <Input
+        label='Город'
         value={profile?.city}
         className={styles.profileCard__field}
         readOnly={!isEditable}

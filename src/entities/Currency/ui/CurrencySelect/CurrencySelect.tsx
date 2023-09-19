@@ -19,5 +19,6 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo(({
     onChange={onChange}
     disabled={disabled}
     className={className}
+    label='Валюта'
   />
 ))

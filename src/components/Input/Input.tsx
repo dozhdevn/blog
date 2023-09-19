@@ -63,23 +63,27 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
 
   const StartIconComponent = StartIcon && <StartIcon className={styles.input__startIcon} />
 
-  const helperTextMessage = helperText && <Typography className={styles.inTypographyut__helperText}>{helperText}</Typography>
+  const helperTextMessage = helperText && <Typography className={styles.input__helperText}>{helperText}</Typography>
 
   return (
     <div
       className={cn(
         styles.input,
-        { [styles.input_error]: error },
+
+        {
+          [styles.input_readonly]: readOnly,
+          [styles.input_error]: error,
+        },
         className,
       )}
       ref={ref}
     >
+      {labelComponent}
       <div
         className={cn(
           styles.input__container,
           {
             [styles.input__container_active]: focused,
-            [styles.input__container_readonly]: readOnly,
           },
           classNameContainer,
         )}

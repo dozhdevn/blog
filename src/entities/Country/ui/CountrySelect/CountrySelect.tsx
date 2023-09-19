@@ -14,6 +14,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo(({
   value, onChange, disabled, className,
 }) => (
   <Select
+    label='Страна'
     options={countryOptions}
     value={value}
     onChange={onChange}

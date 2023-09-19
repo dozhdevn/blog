@@ -7,6 +7,7 @@ export interface SelectProps<T = string> {
   value?: SelectOption['value']
   options: SelectOption<T>[]
   placeholder?: string
+  label?: string
   disabled?: boolean
   open?: boolean
   className?: string

@@ -1,8 +1,11 @@
 import { Profile } from 'entities/Profile'
+import { ProfileSchemaValidationKeys, ValidateProfileError } from '../services/validateProfile/validateProfile'
+
+export type ProfileErrors = { [key in ProfileSchemaValidationKeys]?: ValidateProfileError}
 
 export interface EditableProfileSchema {
   profileForm: Profile | null
   isLoading: boolean
   isEditable: boolean
-  error?: string
+  errors?: ProfileErrors
 }

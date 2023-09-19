@@ -17,8 +17,10 @@ import { getProfileForm } from 'features/EditableProfile/model/selectors/getProf
 import { getLoadingEditPlayer } from 'features/EditableProfile/model/selectors/getLoadingEditPlayer'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import styles from './ProfilePage.module.scss'
+import { getEditProfileErrors } from 'features/EditableProfile/model/selectors/getEditProfileErrors'
 import { ProfilePageFooter } from './ProfilePageFooter'
+
+import styles from './ProfilePage.module.scss'
 
 const config = {
   reducers: {
@@ -35,6 +37,7 @@ const ProfilePage: React.FC = () => {
   const prifileEditLoading = useSelector(getLoadingEditPlayer)
   const profileError = useSelector(getProfileError)
   const isEditableProfile = useSelector(getIsEditableProfile)
+  const editProfileErrors = useSelector(getEditProfileErrors)
 
   useEffect(() => {
     if (user) {
@@ -78,7 +81,7 @@ const ProfilePage: React.FC = () => {
     if (profileLoading || prifileEditLoading) {
       return <Loader className={styles.profilePage__loader} />
     }
-    if (profileError) {
+    if (profileError || editProfileErrors?.response) {
       return (
         <>
           <Typography color='error' variant='title'>Произошла ошибка</Typography>
@@ -93,6 +96,7 @@ const ProfilePage: React.FC = () => {
           profile={profileFormData}
           renderFooter={ProfilePageFooter}
           isEditable={isEditableProfile}
+          errors={editProfileErrors}
           onChangeFirstname={onChangeFirstname}
           onChangeUsername={onChangeUsername}
           onChangeLastname={onChangeLastname}
@@ -104,7 +108,22 @@ const ProfilePage: React.FC = () => {
         />
       </>
     )
-  }, [profileLoading, prifileEditLoading, profileFormData, isEditableProfile, profileError])
+  }, [
+    profileLoading,
+    prifileEditLoading,
+    profileError,
+    editProfileErrors,
+    profileFormData,
+    isEditableProfile,
+    onChangeFirstname,
+    onChangeUsername,
+    onChangeLastname,
+    onChangeAvatar,
+    onChangeAge,
+    onChangeCity,
+    onChangeCurrency,
+    onChangeCountry,
+  ])
 
   return (
     <DynamicModuleLoader {...config}>

@@ -7,7 +7,7 @@ const initialState: EditableProfileSchema = {
   profileForm: null,
   isLoading: false,
   isEditable: false,
-  error: '',
+  errors: undefined,
 }
 
 export const editableProfileSlice = createSlice({
@@ -29,12 +29,13 @@ export const editableProfileSlice = createSlice({
     cancelEditable: (state, action: PayloadAction<Profile | null>) => {
       state.profileForm = action.payload
       state.isEditable = false
+      state.errors = undefined
     },
   },
   extraReducers: (builder) => {
     builder.addCase(editProfileCard.pending, (state) => {
       state.isLoading = true
-      state.error = ''
+      state.errors = undefined
     })
     builder.addCase(editProfileCard.fulfilled, (state, action) => {
       state.profileForm = action.payload
@@ -42,7 +43,7 @@ export const editableProfileSlice = createSlice({
     })
     builder.addCase(editProfileCard.rejected, (state, action) => {
       state.isLoading = false
-      state.error = action.payload
+      state.errors = action.payload
     })
   },
 })

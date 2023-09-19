@@ -1,10 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { Profile, profileActions } from 'entities/Profile'
 import { ThunkConfig } from 'store/config/types'
+import { isEmpti } from 'utils/isEmpty'
 import { getProfileForm } from '../../selectors/getProfileForm'
 import { editableProfileActions } from '../../slice/editableProfile'
+import { ValidateProfileError, validateProfile } from '../validateProfile/validateProfile'
+import { ProfileErrors } from '../../types/editableProfile'
 
-export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig>(
+export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig<ProfileErrors>>(
   'editProfile/profile',
   async (_, thunkAPI) => {
     const {
@@ -15,6 +18,13 @@ export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig>(
     } = thunkAPI
 
     const profileForm = getProfileForm(getState())
+
+    const errors = validateProfile(profileForm)
+
+    if (!isEmpti(errors)) {
+      return rejectWithValue(errors)
+    }
+
     try {
       const response = await extra.api.put<Profile>(`/profile/${profileForm?.id}`, profileForm)
 
@@ -27,7 +37,7 @@ export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig>(
 
       return response.data
     } catch (error) {
-      return rejectWithValue('error')
+      return rejectWithValue({ response: ValidateProfileError.RESPONSE_ERROR })
     }
   },
 )
