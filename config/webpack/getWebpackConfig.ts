@@ -15,6 +15,7 @@ export const getWebpackConfig = (options: WebpackOptions): Configuration => {
       filename: '[name].[contenthash].bundle.js',
       path: paths.output,
       clean: true,
+      publicPath: '/',
     },
     devtool: isDev ? 'inline-source-map' : undefined,
     plugins: getPlugins(options),

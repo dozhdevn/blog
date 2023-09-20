@@ -2,6 +2,8 @@ import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePage } from 'pages/ProfilePage'
+import { ArticlesPage } from 'pages/ArticlePage'
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { RouterConfig } from './types'
 import { RoutePath } from './routePaths'
 
@@ -19,6 +21,18 @@ export const routerConfig: RouterConfig[] = [
   {
     path: RoutePath.PROFILE,
     component: ProfilePage,
+    exact: true,
+    private: true,
+  },
+  {
+    path: RoutePath.ARTICLES,
+    component: ArticlesPage,
+    exact: true,
+    private: true,
+  },
+  {
+    path: RoutePath.ARTICLE_DEATAILS,
+    component: ArticleDetailsPage,
     exact: true,
     private: true,
   },

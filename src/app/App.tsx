@@ -8,22 +8,27 @@ import { Sidebar } from 'core/components/Sidebar'
 import { withRedux } from 'core/hocs/withRedux'
 import { withErrorBoundary } from 'core/hocs/withErrorBoundary'
 import { withAuth } from 'core/hocs/withAuth'
-import { withTheme } from '../core'
 
+import { useSelector } from 'react-redux'
+import { getUserInited } from 'entities/User/model/selectors/getUserInited'
+import { withTheme } from '../core'
 import './app.scss'
 
-const App: React.FC = () => (
-  <BrowserRouter>
-    <Suspense fallback={<div>Загрузка</div>}>
-      <div className='app'>
-        <Navbar />
-        <div className='content-page'>
-          <Sidebar />
-          <AppRouter />
+const App: React.FC = () => {
+  const inited = useSelector(getUserInited)
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<div>Загрузка</div>}>
+        <div className='app'>
+          <Navbar />
+          <div className='content-page'>
+            <Sidebar />
+            {inited && <AppRouter />}
+          </div>
         </div>
-      </div>
-    </Suspense>
-  </BrowserRouter>
-)
+      </Suspense>
+    </BrowserRouter>
+  )
+}
 
 export default compose<React.FC>(withRedux, withTheme, withErrorBoundary, withAuth)(App)
