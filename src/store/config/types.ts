@@ -7,6 +7,7 @@ import { AxiosInstance } from 'axios'
 import { AppDispatch } from 'store'
 import { ProfileSchema } from 'entities/Profile'
 import { EditableProfileSchema } from 'features/EditableProfile'
+import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -17,6 +18,7 @@ export interface StoreSchema {
   profile?: ProfileSchema
   editProfile?: EditableProfileSchema
   login?: LoginSchema
+  article?: ArticleDetailsSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema

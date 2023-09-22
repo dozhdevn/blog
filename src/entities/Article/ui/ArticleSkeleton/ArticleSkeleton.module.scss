@@ -1,0 +1,11 @@
+.articleSkeleton {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__skeleton {
+    margin-top: 10px;
+  }
+}

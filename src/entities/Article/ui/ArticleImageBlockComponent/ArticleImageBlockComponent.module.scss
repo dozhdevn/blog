@@ -1,0 +1,11 @@
+.articleImageBlock {
+  display: block;
+
+  &__img {
+    max-width: 100%;
+  }
+
+  &__title {
+    margin-top: 12px;
+  }
+}

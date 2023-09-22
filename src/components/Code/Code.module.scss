@@ -1,0 +1,13 @@
+.codeWrap {
+  position: relative;
+  padding: 20px;
+  background: var(--secondary-bg-color);
+  border: 1px solid var(--primary-color);
+  white-space: pre-wrap;
+}
+
+.copyBtn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}

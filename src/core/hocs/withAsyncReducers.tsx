@@ -1,6 +1,6 @@
 import { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch } from 'hooks/useAppDispatch'
-import { useEffect, useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useStore } from 'react-redux'
 import { ReduxStoreWithManager, StoreSchemaKey } from 'store/config/types'
 

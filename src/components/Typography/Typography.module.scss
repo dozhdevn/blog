@@ -1,16 +1,16 @@
 .typography {
 
-  &__h2 {
+  &__title {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-black);
   }
 
-  &__h4 {
+  &__subTitle {
     font-size: var(--font-size-l);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-regular);
   }
 
-  &__p {
+  &__text {
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-regular);
   }
