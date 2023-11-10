@@ -1,9 +1,9 @@
-import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import React, { useEffect } from 'react'
 import cn from 'classnames'
 import { useSelector } from 'react-redux'
-import { Avatar } from 'components/Avatar'
-import { Typography } from 'components/Typography'
+import { Avatar } from 'shared/ui/Avatar'
+import { Typography } from 'shared/ui/Typography'
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article'
 import { getArticle, getArticleError, getArticleLoading } from '../../model/selectors/articleDetails'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
@@ -54,8 +54,12 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id, className })
   if (error) {
     return (
       <div className={cn(styles.articleDetails, className)}>
-        <Typography color='error' variant='title'>Произошла ошибка</Typography>
-        <Typography color='error' variant='subTitle'>{error}</Typography>
+        <Typography color='error' variant='title'>
+          Произошла ошибка
+        </Typography>
+        <Typography color='error' variant='subTitle'>
+          {error}
+        </Typography>
       </div>
     )
   }
@@ -67,7 +71,9 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id, className })
         <Typography>{article?.user.username}</Typography>
         <Typography>{article?.createdAt}</Typography>
       </div>
-      <Typography variant='title' className={styles.articleDetails__title}>{article?.title}</Typography>
+      <Typography variant='title' className={styles.articleDetails__title}>
+        {article?.title}
+      </Typography>
       <Typography variant='subTitle'>{article?.subtitle}</Typography>
 
       <div className={styles.articleDetails__imgWrap}>

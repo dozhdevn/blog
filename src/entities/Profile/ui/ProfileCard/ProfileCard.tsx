@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import cn from 'classnames'
 
-import { Input } from 'components/Input'
+import { Input } from 'shared/ui/Input'
 
 import { Profile } from 'entities/Profile'
 
@@ -27,94 +27,96 @@ export interface ProfileCardProps {
   className?: string
 }
 
-export const ProfileCard: React.FC<ProfileCardProps> = memo(({
-  profile,
-  isEditable,
-  errors,
-  onChangeFirstname,
-  onChangeUsername,
-  onChangeLastname,
-  onChangeAvatar,
-  onChangeAge,
-  onChangeCity,
-  onChangeCurrency,
-  onChangeCountry,
-  renderFooter,
-  className,
-}) => {
-  const content = (
-    <div className={styles.profileCard__fields}>
-      <Input
-        label='Имя пользователя'
-        value={profile?.firstname}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeFirstname}
-        error={!!errors?.firstname}
-        helperText={errors?.firstname}
-      />
-      <Input
-        label='Логин'
-        value={profile?.username}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeUsername}
-        error={!!errors?.username}
-        helperText={errors?.username}
-      />
-      <Input
-        label='Фамилия'
-        value={profile?.lastname}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeLastname}
-        error={!!errors?.lastname}
-        helperText={errors?.lastname}
-      />
-      <Input
-        label='Аватар'
-        value={profile?.avatar}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeAvatar}
-      />
-      <Input
-        label='Возраст'
-        value={String(profile?.age)}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeAge}
-      />
+export const ProfileCard: React.FC<ProfileCardProps> = memo(
+  ({
+    profile,
+    isEditable,
+    errors,
+    onChangeFirstname,
+    onChangeUsername,
+    onChangeLastname,
+    onChangeAvatar,
+    onChangeAge,
+    onChangeCity,
+    onChangeCurrency,
+    onChangeCountry,
+    renderFooter,
+    className,
+  }) => {
+    const content = (
+      <div className={styles.profileCard__fields}>
+        <Input
+          label='Имя пользователя'
+          value={profile?.firstname}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeFirstname}
+          error={!!errors?.firstname}
+          helperText={errors?.firstname}
+        />
+        <Input
+          label='Логин'
+          value={profile?.username}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeUsername}
+          error={!!errors?.username}
+          helperText={errors?.username}
+        />
+        <Input
+          label='Фамилия'
+          value={profile?.lastname}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeLastname}
+          error={!!errors?.lastname}
+          helperText={errors?.lastname}
+        />
+        <Input
+          label='Аватар'
+          value={profile?.avatar}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeAvatar}
+        />
+        <Input
+          label='Возраст'
+          value={String(profile?.age)}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeAge}
+        />
 
-      <CurrencySelect
-        value={profile?.currency}
-        onChange={onChangeCurrency}
-        className={styles.profileCard__field}
-        disabled={!isEditable}
-      />
+        <CurrencySelect
+          value={profile?.currency}
+          onChange={onChangeCurrency}
+          className={styles.profileCard__field}
+          disabled={!isEditable}
+        />
 
-      <Input
-        label='Город'
-        value={profile?.city}
-        className={styles.profileCard__field}
-        readOnly={!isEditable}
-        onChange={onChangeCity}
-      />
-      <CountrySelect
-        value={profile?.country}
-        className={styles.profileCard__field}
-        disabled={!isEditable}
-        onChange={onChangeCountry}
-      />
-    </div>
-  )
+        <Input
+          label='Город'
+          value={profile?.city}
+          className={styles.profileCard__field}
+          readOnly={!isEditable}
+          onChange={onChangeCity}
+        />
+        <CountrySelect
+          value={profile?.country}
+          className={styles.profileCard__field}
+          disabled={!isEditable}
+          onChange={onChangeCountry}
+        />
+      </div>
+    )
 
-  const footer = renderFooter && renderFooter()
+    const footer = renderFooter && renderFooter()
 
-  return (
-    <div className={cn(styles.profileCard, className)}>
-      {content}
-      {footer}
-    </div>
-  )
-})
+    return (
+      <div className={cn(styles.profileCard, className)}>
+        {content}
+        {footer}
+      </div>
+    )
+  },
+)

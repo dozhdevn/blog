@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Skeleton } from 'components/Skeleton/Skeleton'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import styles from './ArticleSkeleton.module.scss'
 
 export const ArticleSkeleton: React.FC = () => (

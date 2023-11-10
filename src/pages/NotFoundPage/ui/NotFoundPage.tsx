@@ -1,4 +1,4 @@
-import { AppLink } from 'components/AppLink'
+import { AppLink } from 'shared/ui/AppLink'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 

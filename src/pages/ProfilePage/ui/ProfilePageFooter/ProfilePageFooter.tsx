@@ -1,12 +1,12 @@
-import { Button } from 'components/Button'
-import { useAppDispatch } from 'hooks/useAppDispatch'
+import { Button } from 'shared/ui/Button'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { getIsEditableProfile } from 'features/EditableProfile/model/selectors/getIsEditableProfile'
 import { editableProfileActions, editProfileCard } from 'features/EditableProfile'
 import { getProfile } from 'entities/Profile/model/selectors/getProfile'
 import styles from './ProfilePageFooter.module.scss'
 
-export const ProfilePageFooter = () : JSX.Element => {
+export const ProfilePageFooter = (): JSX.Element => {
   const dispatch = useAppDispatch()
 
   const profile = useSelector(getProfile)
@@ -27,13 +27,18 @@ export const ProfilePageFooter = () : JSX.Element => {
 
   const buttons = isEditable ? (
     <>
-      <Button variant='contained' onClick={onSave}>Сохранить</Button>
-      <Button variant='outlined' onClick={onCancelEdit}>Отмена</Button>
+      <Button variant='contained' onClick={onSave}>
+        Сохранить
+      </Button>
+      <Button variant='outlined' onClick={onCancelEdit}>
+        Отмена
+      </Button>
     </>
+  ) : (
+    <Button variant='contained' onClick={onEdit}>
+      Редактировать
+    </Button>
   )
-    : <Button variant='contained' onClick={onEdit}>Редактировать</Button>
 
-  return (
-    <div className={styles.profilePageFooter}>{buttons}</div>
-  )
+  return <div className={styles.profilePageFooter}>{buttons}</div>
 }

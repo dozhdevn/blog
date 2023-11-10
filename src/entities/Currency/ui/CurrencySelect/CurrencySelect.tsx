@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import Select from 'components/Select'
+import Select from 'shared/ui/Select'
 import { Currency } from '../../model/types/currency'
 import { currencyOptions } from '../../constants'
 

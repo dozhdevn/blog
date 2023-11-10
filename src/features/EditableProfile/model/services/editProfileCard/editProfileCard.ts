@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { Profile, profileActions } from 'entities/Profile'
-import { ThunkConfig } from 'store/config/types'
-import { isEmpti } from 'utils/isEmpty'
+import { ThunkConfig } from 'app/store/config/types'
+import { isEmpti } from 'shared/lib/utils/isEmpty'
 import { getProfileForm } from '../../selectors/getProfileForm'
 import { editableProfileActions } from '../../slice/editableProfile'
 import { ValidateProfileError, validateProfile } from '../validateProfile/validateProfile'
@@ -11,10 +11,7 @@ export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig<Profi
   'editProfile/profile',
   async (_, thunkAPI) => {
     const {
-      extra,
-      dispatch,
-      rejectWithValue,
-      getState,
+      extra, dispatch, rejectWithValue, getState,
     } = thunkAPI
 
     const profileForm = getProfileForm(getState())

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { withAsyncReducers } from 'core/hocs/withAsyncReducers'
+import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers'
 import { ArticleDetails, articleReducer } from 'entities/Article'
 import { CommentList } from 'entities/Comment'
 import { useParams } from 'react-router-dom'
 
-import { Typography } from 'components/Typography'
-import { useAppDispatch } from 'hooks/useAppDispatch'
+import { Typography } from 'shared/ui/Typography'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { articleDetailsCommentsReducer, fetchCommentsByArticleId } from 'features/ArticleCommentList'
 import { useSelector } from 'react-redux'
 import {

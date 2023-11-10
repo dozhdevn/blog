@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { User, UserService, userActions } from 'entities/User'
-import { ThunkConfig } from 'store/config/types'
+import { ThunkConfig } from 'app/store/config/types'
 
 interface LoginByUsernameProps {
   password: string

@@ -1,4 +1,4 @@
-import { StoreSchema } from 'store/config/types'
+import { StoreSchema } from 'app/store/config/types'
 
 export const getArticleComments = (state: StoreSchema) => state.articleComments?.comments || []
 export const getArticleCommentsIsLoading = (state: StoreSchema) => state.articleComments?.isLoading || false

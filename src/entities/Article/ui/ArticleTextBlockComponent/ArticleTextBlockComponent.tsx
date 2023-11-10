@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { Typography } from 'components/Typography'
+import { Typography } from 'shared/ui/Typography'
 import { ArticleTextBlock } from '../../model/types/article'
 
 import styles from './ArticleTextBlockComponent.module.scss'
@@ -15,8 +15,9 @@ export const ArticleTextBlockComponent: React.FC<ArticleTextBlockComponentProps>
     <Typography variant='subTitle'>{block.title}</Typography>
 
     {block.paragraphs.map((paragraph) => (
-      <Typography key={paragraph} className={styles.articleTextBlock__paragraph}>{paragraph}</Typography>
+      <Typography key={paragraph} className={styles.articleTextBlock__paragraph}>
+        {paragraph}
+      </Typography>
     ))}
-
   </div>
 )

@@ -1,7 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
-import { Avatar } from 'components/Avatar'
-import { Typography } from 'components/Typography'
+import { Avatar } from 'shared/ui/Avatar'
+import { Typography } from 'shared/ui/Typography'
 import { CommentData } from '../../model/types/comment'
 
 import styles from './Comment.module.scss'

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import { Skeleton } from 'components/Skeleton'
+import { Skeleton } from 'shared/ui/Skeleton'
 import styles from './Comment.module.scss'
 
 interface CommentSkeletonProps {

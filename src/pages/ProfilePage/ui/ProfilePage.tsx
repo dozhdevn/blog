@@ -2,15 +2,15 @@ import React, { useCallback, useEffect, useMemo } from 'react'
 
 import { ProfileCard, fetchProfile, profileReducer } from 'entities/Profile'
 import { getAuthData } from 'entities/User'
-import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 
-import { Avatar } from 'components/Avatar'
+import { Avatar } from 'shared/ui/Avatar'
 import { getProfileLoading } from 'entities/Profile/model/selectors/getProfileLoading'
-import { Loader } from 'components/Loader'
-import { DynamicModuleLoader } from 'core/layouts/DynamicModuleLoader'
+import { Loader } from 'shared/ui/Loader'
+import { DynamicModuleLoader } from 'widgets/layouts/DynamicModuleLoader'
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError'
-import { Typography } from 'components/Typography'
+import { Typography } from 'shared/ui/Typography'
 import { getIsEditableProfile } from 'features/EditableProfile/model/selectors/getIsEditableProfile'
 import { editableProfileActions, editableProfileReducer } from 'features/EditableProfile'
 import { getProfileForm } from 'features/EditableProfile/model/selectors/getProfileForm'
@@ -84,8 +84,12 @@ const ProfilePage: React.FC = () => {
     if (profileError || editProfileErrors?.response) {
       return (
         <>
-          <Typography color='error' variant='title'>Произошла ошибка</Typography>
-          <Typography color='error' variant='subTitle'>Попробуйте перезагрузить страницу</Typography>
+          <Typography color='error' variant='title'>
+            Произошла ошибка
+          </Typography>
+          <Typography color='error' variant='subTitle'>
+            Попробуйте перезагрузить страницу
+          </Typography>
         </>
       )
     }
@@ -127,11 +131,8 @@ const ProfilePage: React.FC = () => {
 
   return (
     <DynamicModuleLoader {...config}>
-      <div className={styles.profilePage}>
-        {renderContent}
-      </div>
+      <div className={styles.profilePage}>{renderContent}</div>
     </DynamicModuleLoader>
-
   )
 }
 

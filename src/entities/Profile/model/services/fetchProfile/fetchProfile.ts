@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'store/config/types'
+import { ThunkConfig } from 'app/store/config/types'
 import { editableProfileActions } from 'features/EditableProfile'
 import { Profile } from '../../types/profile'
 

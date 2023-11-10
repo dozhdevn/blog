@@ -1,16 +1,16 @@
 import React, { memo, useCallback, useEffect } from 'react'
 import cn from 'classnames'
 
-import { Button } from 'components/Button'
-import { Input } from 'components/Input'
+import { Button } from 'shared/ui/Button'
+import { Input } from 'shared/ui/Input'
 
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { getAuthData } from 'entities/User'
-import { Typography } from 'components/Typography'
-import { ReducersList } from 'core/layouts/DynamicModuleLoader'
-import { withAsyncReducers } from 'core/hocs/withAsyncReducers'
+import { Typography } from 'shared/ui/Typography'
+import { ReducersList } from 'widgets/layouts/DynamicModuleLoader'
+import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername'
@@ -46,17 +46,26 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
     dispatch(loginByUsername({ username, password }))
   }
 
-  const onChangeUsername = useCallback((username: string) => {
-    dispatch(loginActions.setUsername(username))
-  }, [dispatch])
+  const onChangeUsername = useCallback(
+    (username: string) => {
+      dispatch(loginActions.setUsername(username))
+    },
+    [dispatch],
+  )
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value))
-  }, [dispatch])
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value))
+    },
+    [dispatch],
+  )
 
-  useEffect(() => () => {
-    dispatch(loginActions.resetState())
-  }, [dispatch])
+  useEffect(
+    () => () => {
+      dispatch(loginActions.resetState())
+    },
+    [dispatch],
+  )
 
   useEffect(() => {
     if (authData) {
@@ -66,7 +75,9 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
 
   return (
     <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
-      <Typography variant='title' className={styles.loginForm__title}>Войти</Typography>
+      <Typography variant='title' className={styles.loginForm__title}>
+        Войти
+      </Typography>
       <Input
         placeholder={t('Введите логин')}
         onChange={onChangeUsername}
