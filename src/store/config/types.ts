@@ -8,6 +8,7 @@ import { AppDispatch } from 'store'
 import { ProfileSchema } from 'entities/Profile'
 import { EditableProfileSchema } from 'features/EditableProfile'
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
+import { ArticleCommentListSchema } from 'features/ArticleCommentList'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -19,6 +20,7 @@ export interface StoreSchema {
   editProfile?: EditableProfileSchema
   login?: LoginSchema
   article?: ArticleDetailsSchema
+  articleComments?: ArticleCommentListSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema

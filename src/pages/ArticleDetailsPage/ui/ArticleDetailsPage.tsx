@@ -1,18 +1,48 @@
+import React, { useEffect } from 'react'
 import { withAsyncReducers } from 'core/hocs/withAsyncReducers'
 import { ArticleDetails, articleReducer } from 'entities/Article'
-import React from 'react'
+import { CommentList } from 'entities/Comment'
 import { useParams } from 'react-router-dom'
 
+import { Typography } from 'components/Typography'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { articleDetailsCommentsReducer, fetchCommentsByArticleId } from 'features/ArticleCommentList'
+import { useSelector } from 'react-redux'
+import {
+  getArticleComments,
+  getArticleCommentsIsLoading,
+} from 'features/ArticleCommentList/model/selectors/articleComments'
+import styles from './ArticleDetailsPage.module.scss'
+
 const ArticleDetailsPage: React.FC = () => {
-  const { id } = useParams<{id: string}>()
+  const { id } = useParams<{ id: string }>()
+
+  const dispatch = useAppDispatch()
+
+  const comments = useSelector(getArticleComments)
+  const loadingComments = useSelector(getArticleCommentsIsLoading)
+
+  useEffect(() => {
+    dispatch(fetchCommentsByArticleId(id))
+  }, [dispatch, id])
+
   return (
-    <ArticleDetails id={id} />
+    <div>
+      <ArticleDetails id={id} />
+
+      <Typography variant='subTitle' className={styles.commentTitle}>
+        Комментарии
+      </Typography>
+
+      <CommentList className={styles.commentList} comments={comments} isLoading={loadingComments} />
+    </div>
   )
 }
 
 const config = {
   reducers: {
     article: articleReducer,
+    articleComments: articleDetailsCommentsReducer,
   },
 }
 

@@ -1,7 +1,7 @@
 export interface User {
   avatar: string
   id: string
-  role: string
+  role?: string
   username: string
 }
 

@@ -3,14 +3,22 @@ import React, {
 } from 'react'
 import cn from 'classnames'
 import ArrowIcon from 'assets/icons/svg/arrow-horizontal.svg'
-import { TypedMemo } from 'components/TypedMemo'
+import { TypedMemo } from 'components/__base/TypedMemo'
 import { SelectProps } from './types'
 
 import styles from './Select.module.scss'
 import { Option } from './components/Option/Option'
 
 const Select = <T,>({
-  value, options, placeholder, label, open, disabled, onChange, onClose, className,
+  value,
+  options,
+  placeholder,
+  label,
+  open,
+  disabled,
+  onChange,
+  onClose,
+  className,
 }: SelectProps<T>): JSX.Element => {
   const [openSelect, setOpenSelect] = useState(!!open)
 
@@ -55,26 +63,24 @@ const Select = <T,>({
 
   return (
     <div
-      className={cn(styles.select, {
-        [styles.select_open]: openSelect,
-        [styles.select_disabled]: disabled,
-      }, className)}
+      className={cn(
+        styles.select,
+        {
+          [styles.select_open]: openSelect,
+          [styles.select_disabled]: disabled,
+        },
+        className,
+      )}
       ref={rootRef}
     >
       {labelComponent}
-      <div
-        className={styles.select__container}
-      >
+      <div className={styles.select__container}>
         <div className={styles.select__arrow}>
           <ArrowIcon />
         </div>
 
-        <div
-          onClick={handlePlaceholderClick}
-          className={styles.select__placeholder}
-        >
+        <div onClick={handlePlaceholderClick} className={styles.select__placeholder}>
           {labelView || placeholder}
-
         </div>
 
         {openSelect && <ul className={styles.select__list}>{dropdownList}</ul>}
