@@ -13,6 +13,7 @@ interface WithAsyncReducersConfig {
   removeAfterUnmount?: boolean
 }
 
+// eslint-disable-next-line max-len
 export const withAsyncReducers = <Props extends Record<string, unknown>>(Component: React.FC<Props>, config: WithAsyncReducersConfig) =>
   (props: Props) => {
     const store = useStore() as ReduxStoreWithManager

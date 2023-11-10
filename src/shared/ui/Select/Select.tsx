@@ -53,7 +53,7 @@ const Select = <T,>({
     return () => {
       window.removeEventListener('click', handleClick)
     }
-  }, [])
+  }, [onClose])
 
   const dropdownList = options.map((option) => (
     <Option key={option.value as Key} onClick={handleOptionClick(option.value)}>
