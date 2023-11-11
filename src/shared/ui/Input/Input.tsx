@@ -64,7 +64,11 @@ export const Input = memo(
 
     const StartIconComponent = StartIcon && <StartIcon className={styles.input__startIcon} />
 
-    const helperTextMessage = helperText && <Typography className={styles.input__helperText}>{helperText}</Typography>
+    const helperTextMessage = helperText && (
+      <Typography className={styles.input__helperText} s>
+        {helperText}
+      </Typography>
+    )
 
     return (
       <div

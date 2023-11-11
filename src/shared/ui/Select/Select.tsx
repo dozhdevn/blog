@@ -3,7 +3,7 @@ import React, {
 } from 'react'
 import cn from 'classnames'
 import ArrowIcon from 'shared/assets/icons/svg/arrow-horizontal.svg'
-import { TypedMemo } from 'shared/ui/__base/TypedMemo'
+import { TypedMemo } from 'shared/ui/__base/components/TypedMemo'
 import { SelectProps } from './types'
 
 import styles from './Select.module.scss'

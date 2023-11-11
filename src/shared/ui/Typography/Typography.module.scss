@@ -1,5 +1,4 @@
 .typography {
-
   &__title {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-black);
@@ -27,14 +26,13 @@
     &_left {
       text-align: left;
     }
-  
+
     &_center {
       text-align: center;
     }
-  
+
     &_right {
       text-align: right;
     }
   }
-
 }
