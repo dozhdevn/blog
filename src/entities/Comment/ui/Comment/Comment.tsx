@@ -27,7 +27,7 @@ export const Comment: React.FC<CommentProps> = ({ comment, isLoading, className 
       </Link>
       <div className={styles.content}>
         <Typography className={styles.username}>{`@${comment.user.username}`}</Typography>
-        <Typography>{comment.text}</Typography>
+        <Typography as='p'>{comment.text}</Typography>
       </div>
     </div>
   )

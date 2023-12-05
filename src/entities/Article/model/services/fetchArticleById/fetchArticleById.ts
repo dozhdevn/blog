@@ -3,9 +3,10 @@ import { ThunkConfig } from 'app/store/config/types'
 import { Article } from '../../types/article'
 
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig>(
-  'article/fetchArticle',
+  'articleDetails/fetchArticle',
   async (articleId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI
+
     try {
       const response = await extra.api.get(`/articles/${articleId}`, {
         params: {

@@ -71,10 +71,10 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id, className })
         <Typography>{article?.user.username}</Typography>
         <Typography>{article?.createdAt}</Typography>
       </div>
-      <Typography variant='title' className={styles.articleDetails__title}>
+      <Typography as='h2' variant='title' className={styles.articleDetails__title}>
         {article?.title}
       </Typography>
-      <Typography variant='subTitle'>{article?.subtitle}</Typography>
+      <Typography as='h3' variant='subTitle'>{article?.subtitle}</Typography>
 
       <div className={styles.articleDetails__imgWrap}>
         <img src={article?.img} alt={article?.title} className={styles.articleDetails__img} />

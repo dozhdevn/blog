@@ -12,7 +12,17 @@ import {
   getArticleComments,
   getArticleCommentsIsLoading,
 } from 'features/ArticleCommentList/model/selectors/articleComments'
+import { AddCommentForm } from 'features/addCommentForm'
+import { DynamicModuleLoader } from 'widgets/layouts/DynamicModuleLoader'
 import styles from './ArticleDetailsPage.module.scss'
+import { addCommentForArticle } from '../model/services/addCommentsForArticle'
+
+const config = {
+  reducers: {
+    article: articleReducer,
+    articleComments: articleDetailsCommentsReducer,
+  },
+}
 
 const ArticleDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -26,24 +36,23 @@ const ArticleDetailsPage: React.FC = () => {
     dispatch(fetchCommentsByArticleId(id))
   }, [dispatch, id])
 
+  const onSendComment = (value: string) => {
+    dispatch(addCommentForArticle(value))
+  }
+
   return (
-    <div>
-      <ArticleDetails id={id} />
+    <DynamicModuleLoader {...config}>
+      <div>
+        <ArticleDetails id={id} />
 
-      <Typography variant='subTitle' className={styles.commentTitle}>
-        Комментарии
-      </Typography>
-
-      <CommentList className={styles.commentList} comments={comments} isLoading={loadingComments} />
-    </div>
+        <Typography variant='subTitle' as='h3' className={styles.commentTitle}>
+          Комментарии
+        </Typography>
+        <AddCommentForm onSendComment={onSendComment} className={styles.form} />
+        <CommentList className={styles.commentList} comments={comments} isLoading={loadingComments} />
+      </div>
+    </DynamicModuleLoader>
   )
-}
-
-const config = {
-  reducers: {
-    article: articleReducer,
-    articleComments: articleDetailsCommentsReducer,
-  },
 }
 
 export default withAsyncReducers(ArticleDetailsPage, config)

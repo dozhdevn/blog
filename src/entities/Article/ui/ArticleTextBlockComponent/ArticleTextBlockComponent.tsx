@@ -12,10 +12,10 @@ export interface ArticleTextBlockComponentProps {
 
 export const ArticleTextBlockComponent: React.FC<ArticleTextBlockComponentProps> = ({ block, className }) => (
   <div className={cn(styles.articleTextBlock, className)}>
-    <Typography variant='subTitle'>{block.title}</Typography>
+    <Typography as='h3' variant='subTitle'>{block.title}</Typography>
 
     {block.paragraphs.map((paragraph) => (
-      <Typography key={paragraph} className={styles.articleTextBlock__paragraph}>
+      <Typography as='p' key={paragraph} className={styles.articleTextBlock__paragraph}>
         {paragraph}
       </Typography>
     ))}
