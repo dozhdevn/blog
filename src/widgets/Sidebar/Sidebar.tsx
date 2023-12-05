@@ -10,11 +10,13 @@ import { LanguageSwitch } from '../LanguageSwitch'
 
 import styles from './Sidebar.module.scss'
 import { SidebarLink } from './components/SidebarLink'
-import { sidebarLinksList } from './model/items'
+import { useSidebarLinks } from './lib/useSidebarLinks'
 
 export const Sidebar: React.FC = () => {
   const isAuth = useSelector(getIsAuth)
   const [collapsed, setCollapsed] = useState(false)
+
+  const sidebarLinksList = useSidebarLinks()
 
   const handleToggleColapsed = () => {
     setCollapsed((prev) => !prev)

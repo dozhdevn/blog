@@ -1,7 +1,5 @@
-import { RoutePath } from './routePaths'
-
 export interface RouterConfig {
-  path: RoutePath
+  path: string
   component: React.FC
   exact?: boolean
   private?: boolean

@@ -21,7 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const dispatch = useAppDispatch()
 
   const authData = useSelector(getAuthData)
-
   const [openLoginModal, setOpenLoginModal] = useState(false)
 
   const openLoginModalHandler = () => {

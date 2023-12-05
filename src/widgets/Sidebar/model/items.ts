@@ -5,7 +5,7 @@ import ProfileIcon from 'shared/assets/icons/svg/profile.svg'
 import ArticlesIcon from 'shared/assets/icons/svg/articles.svg'
 
 export interface SideBarLinkType {
-  to: RoutePath
+  to: string
   title: string
   icon: React.VFC<React.SVGProps<SVGSVGElement>>
   visibleOnlyAuth?: boolean
@@ -23,7 +23,7 @@ export const sidebarLinksList: SideBarLinkType[] = [
     icon: AboutIcon,
   },
   {
-    to: RoutePath.PROFILE,
+    to: `${RoutePath.PROFILE}/:id`,
     title: 'Профиль',
     icon: ProfileIcon,
     visibleOnlyAuth: true,

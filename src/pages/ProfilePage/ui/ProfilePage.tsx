@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from 'react'
 
 import { ProfileCard, fetchProfile, profileReducer } from 'entities/Profile'
-import { getAuthData } from 'entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 
@@ -18,6 +17,7 @@ import { getLoadingEditPlayer } from 'features/EditableProfile/model/selectors/g
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import { getEditProfileErrors } from 'features/EditableProfile/model/selectors/getEditProfileErrors'
+import { useParams } from 'react-router-dom'
 import { ProfilePageFooter } from './ProfilePageFooter'
 
 import styles from './ProfilePage.module.scss'
@@ -31,7 +31,6 @@ const config = {
 
 const ProfilePage: React.FC = () => {
   const dispatch = useAppDispatch()
-  const user = useSelector(getAuthData)
   const profileFormData = useSelector(getProfileForm)
   const profileLoading = useSelector(getProfileLoading)
   const prifileEditLoading = useSelector(getLoadingEditPlayer)
@@ -39,11 +38,13 @@ const ProfilePage: React.FC = () => {
   const isEditableProfile = useSelector(getIsEditableProfile)
   const editProfileErrors = useSelector(getEditProfileErrors)
 
+  const { id } = useParams<{ id: string }>()
+
   useEffect(() => {
-    if (user) {
-      dispatch(fetchProfile(user.id))
+    if (id) {
+      dispatch(fetchProfile(id))
     }
-  }, [dispatch, user])
+  }, [dispatch, id])
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(editableProfileActions.updateProfileForm({ firstname: value }))

@@ -19,7 +19,7 @@ export const routerConfig: RouterConfig[] = [
     exact: true,
   },
   {
-    path: RoutePath.PROFILE,
+    path: `${RoutePath.PROFILE}/:id`,
     component: ProfilePage,
     exact: true,
     private: true,

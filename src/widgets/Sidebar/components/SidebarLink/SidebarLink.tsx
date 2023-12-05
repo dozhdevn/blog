@@ -2,12 +2,11 @@ import React, { memo } from 'react'
 import cn from 'classnames'
 
 import { AppLink } from 'shared/ui/AppLink'
-import { RoutePath } from 'app/routes/model/routePaths'
 
 import styles from './SudebarLink.module.scss'
 
 export interface SidebarLinkProps {
-  to: RoutePath
+  to: string
   title: string
   icon?: React.VFC<React.SVGProps<SVGSVGElement>>
   collapsed?: boolean
