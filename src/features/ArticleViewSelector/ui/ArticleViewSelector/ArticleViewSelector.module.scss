@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  width: fit-content;
+  height: 52px;
+}
+
+.label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid var(--dark-bg-color);
+  background-color: var(--dark-bg-color);
+
+  &-list {
+    border-radius: 43px 0 0 43px;
+    border-right: 0;
+  }
+
+  &-tile {
+    border-radius: 0 43px 43px 0;
+    border-left: 0;
+  }
+
+  &.checked {
+    background-color: var(--primary-bg-color);
+  }
+}
+
+.input {
+  display: none;
+
+  & + .icon {
+    color: var(--light-bg-color);
+  }
+
+  &:checked {
+    & + .icon {
+      color: var(--accent-color);
+    }
+  }
+}

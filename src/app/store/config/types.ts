@@ -9,6 +9,7 @@ import { ProfileSchema } from 'entities/Profile'
 import { EditableProfileSchema } from 'features/EditableProfile'
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
 import { ArticleCommentListSchema } from 'features/ArticleCommentList'
+import { ArticlesPageSchema } from 'pages/ArticlePage'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -21,6 +22,7 @@ export interface StoreSchema {
   login?: LoginSchema
   article?: ArticleDetailsSchema
   articleComments?: ArticleCommentListSchema
+  articlePage?: ArticlesPageSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema

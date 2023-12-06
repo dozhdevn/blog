@@ -47,3 +47,8 @@ export interface Article {
   type: ArticleType[]
   blocks: ArticleBlock[]
 }
+
+export enum ViewModeArticle {
+  List = 'list',
+  Tile = 'tile',
+}
