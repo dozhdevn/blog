@@ -14,6 +14,10 @@ import ArticleLargeSkeleton from './ArticleLargeSkeleton'
 const ArticleLarge: React.FC<ArticleProps> = ({ article, isLoading, className }) => {
   const history = useHistory()
   const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
+  const textBlockWithParagraph = {
+    ...textBlock,
+    paragraphs: textBlock.paragraphs.slice(0, 1),
+  }
 
   const onClickReadMore = () => {
     history.push(`/articles/${article.id}`)
@@ -41,7 +45,7 @@ const ArticleLarge: React.FC<ArticleProps> = ({ article, isLoading, className })
       </Typography>
 
       <img src={article.img} alt={article.title} className={styles.img} />
-      <ArticleTextBlockComponent block={textBlock} />
+      <ArticleTextBlockComponent block={textBlockWithParagraph} />
 
       <div className={styles.footer}>
         <Button variant='contained' onClick={onClickReadMore}>

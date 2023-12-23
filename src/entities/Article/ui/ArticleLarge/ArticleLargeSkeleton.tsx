@@ -12,7 +12,7 @@ const ArticleLargeSkeleton = () => (
     </div>
     <Skeleton width={250} height={40} />
     <Skeleton width={350} height={40} />
-    <Skeleton width='100%' height={420} />
+    <Skeleton width='100%' height={320} />
 
     <div className={styles.footer}>
       <Skeleton width={150} height={40} />
