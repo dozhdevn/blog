@@ -12,9 +12,5 @@ export const PrivateRouter: React.FC<PrivateRouterProps> = (props) => {
     return <Redirect to={RoutePath.MAIN} />
   }
 
-  return (
-    <div className='page-wrapper'>
-      <Route {...props} />
-    </div>
-  )
+  return <Route {...props} />
 }

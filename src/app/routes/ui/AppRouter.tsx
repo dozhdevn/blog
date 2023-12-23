@@ -12,17 +12,7 @@ export const AppRouter: React.FC = () => (
           return <PrivateRouter key={route.path} {...route} />
         }
 
-        return (
-          <Route
-            key={route.path}
-            {...route}
-            render={() => (
-              <div className='page-wrapper'>
-                <route.component />
-              </div>
-            )}
-          />
-        )
+        return <Route key={route.path} {...route} render={() => <route.component />} />
       })}
     </Switch>
   </Suspense>

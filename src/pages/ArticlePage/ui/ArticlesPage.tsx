@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { ViewModeArticle } from 'entities/Article/model/types/article'
 import { ArticleList } from 'entities/Article/ui/ArticleList'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { Page } from 'widgets/Page'
 import { getArticleList, getLoadingArticleList, getViewMode } from '../model/selectors/articlePageSelectors'
 import { articlesPageActions, articlesPageReducer } from '../model/slices/articlesPageSlice'
 
@@ -33,10 +34,10 @@ const ArticlesPage = () => {
   }
 
   return (
-    <>
+    <Page>
       <ArticleViewSelector viewMode={view} onViewClick={onChangeViewArticles} />
       <ArticleList articles={articles} viewMode={view} isLoading={isLoading} className={styles.list} />
-    </>
+    </Page>
   )
 }
 

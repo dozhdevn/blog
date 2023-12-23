@@ -14,6 +14,7 @@ import {
 } from 'features/ArticleCommentList/model/selectors/articleComments'
 import { AddCommentForm } from 'features/addCommentForm'
 import { DynamicModuleLoader } from 'widgets/layouts/DynamicModuleLoader'
+import { Page } from 'widgets/Page'
 import styles from './ArticleDetailsPage.module.scss'
 import { addCommentForArticle } from '../model/services/addCommentsForArticle'
 
@@ -42,7 +43,7 @@ const ArticleDetailsPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader {...config}>
-      <div>
+      <Page>
         <ArticleDetails id={id} />
 
         <Typography variant='subTitle' as='h3' className={styles.commentTitle}>
@@ -50,7 +51,7 @@ const ArticleDetailsPage: React.FC = () => {
         </Typography>
         <AddCommentForm onSendComment={onSendComment} className={styles.form} />
         <CommentList className={styles.commentList} comments={comments} isLoading={loadingComments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }
