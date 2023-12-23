@@ -52,3 +52,9 @@ export enum ViewModeArticle {
   List = 'list',
   Tile = 'tile',
 }
+
+export type ArticleProps = {
+  article: Article
+  isLoading: boolean
+  className?: string
+}
