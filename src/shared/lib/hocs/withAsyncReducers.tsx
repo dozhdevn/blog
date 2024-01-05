@@ -21,10 +21,17 @@ export const withAsyncReducers = <Props extends Record<string, unknown>>(Compone
     const { reducers, removeAfterUnmount = true } = config
 
     useLayoutEffect(() => {
+      const mountedReducers = store.reducerManager.getReducerMap()
+
       Object.entries(reducers).forEach(([key, reducer]) => {
-        store.reducerManager.add(key as StoreSchemaKey, reducer)
-        dispatch({ type: `@INIT ${key} reducer` })
+        const mounted = mountedReducers[key as StoreSchemaKey]
+
+        if (!mounted) {
+          store.reducerManager.add(key as StoreSchemaKey, reducer)
+          dispatch({ type: `@INIT ${key} reducer` })
+        }
       })
+
       return () => {
         if (removeAfterUnmount) {
           Object.keys(reducers).forEach((key) => {

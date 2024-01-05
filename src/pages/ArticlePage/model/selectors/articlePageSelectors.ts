@@ -14,3 +14,5 @@ export const getPageArticleList = (state: StoreSchema) => state.articlePage?.pag
 export const getLimitArticleList = (state: StoreSchema) => state.articlePage?.limit || 3
 
 export const getHasMoreArticleList = (state: StoreSchema) => state.articlePage?.hasMore || false
+
+export const getArticlePageInited = (state: StoreSchema) => state.articlePage?._inited || false

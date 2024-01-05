@@ -6,18 +6,20 @@ import { ViewModeArticle } from 'entities/Article/model/types/article'
 import { ArticleList } from 'entities/Article/ui/ArticleList'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Page } from 'widgets/Page'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { getArticleList, getLoadingArticleList, getViewMode } from '../model/selectors/articlePageSelectors'
 import { articlesPageActions, articlesPageReducer } from '../model/slices/articlesPageSlice'
 
 import styles from './ArticlesPage.module.scss'
 import { fetchArticleList } from '../model/services/fetchArticleList'
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage'
+import { initArticleList } from '../model/services/initArticleList'
 
 const config = {
   reducers: {
     articlePage: articlesPageReducer,
   },
+  removeAfterUnmount: false,
 }
 
 const ArticlesPage = () => {
@@ -28,8 +30,7 @@ const ArticlesPage = () => {
   const view = useSelector(getViewMode)
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState())
-    dispatch(fetchArticleList())
+    dispatch(initArticleList())
   })
 
   const onChangeViewArticles = useCallback(

@@ -14,6 +14,7 @@ const initialState: ArticlesPageSchema = {
   page: 1,
   limit: 3,
   hasMore: true,
+  _inited: false,
 }
 
 export const articlesPageSlice = createSlice({
@@ -34,6 +35,7 @@ export const articlesPageSlice = createSlice({
       const view = getLocalStorage(ARTICLES_VIEW_STORAGE_KEY) as ViewModeArticle
       state.viewMode = view
       state.limit = getQuantityArticles(view)
+      state._inited = true
     },
 
     resetState: (state) => {
