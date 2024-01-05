@@ -23,10 +23,6 @@ const ArticleLarge: React.FC<ArticleProps> = ({ article, isLoading, className })
     history.push(`/articles/${article.id}`)
   }
 
-  if (isLoading) {
-    return <ArticleLargeSkeleton />
-  }
-
   return (
     <div className={cn(styles.article, className)}>
       <div className={styles.header}>

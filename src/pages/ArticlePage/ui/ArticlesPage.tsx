@@ -6,11 +6,13 @@ import { ViewModeArticle } from 'entities/Article/model/types/article'
 import { ArticleList } from 'entities/Article/ui/ArticleList'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Page } from 'widgets/Page'
+import { useCallback, useEffect } from 'react'
 import { getArticleList, getLoadingArticleList, getViewMode } from '../model/selectors/articlePageSelectors'
 import { articlesPageActions, articlesPageReducer } from '../model/slices/articlesPageSlice'
 
 import styles from './ArticlesPage.module.scss'
 import { fetchArticleList } from '../model/services/fetchArticleList'
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage'
 
 const config = {
   reducers: {
@@ -26,15 +28,25 @@ const ArticlesPage = () => {
   const view = useSelector(getViewMode)
 
   useInitialEffect(() => {
+    dispatch(articlesPageActions.initState())
     dispatch(fetchArticleList())
   })
 
-  const onChangeViewArticles = (mode: ViewModeArticle) => {
-    dispatch(articlesPageActions.setViewMode(mode))
-  }
+  const onChangeViewArticles = useCallback(
+    (mode: ViewModeArticle) => {
+      dispatch(articlesPageActions.setViewMode(mode))
+      dispatch(articlesPageActions.resetState())
+      dispatch(fetchArticleList())
+    },
+    [dispatch],
+  )
+
+  const handleNextArticles = useCallback(() => {
+    dispatch(fetchNextArticlesPage())
+  }, [dispatch])
 
   return (
-    <Page>
+    <Page onScrollEnd={handleNextArticles}>
       <ArticleViewSelector viewMode={view} onViewClick={onChangeViewArticles} />
       <ArticleList articles={articles} viewMode={view} isLoading={isLoading} className={styles.list} />
     </Page>

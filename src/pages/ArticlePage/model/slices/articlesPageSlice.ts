@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { ViewModeArticle } from 'entities/Article/model/types/article'
 import { getLocalStorage } from 'shared/lib/utils/getLocalStorage'
 import { ARTICLES_VIEW_STORAGE_KEY } from 'shared/constants/localstorage'
+import { getQuantityArticles } from 'entities/Article/lib/getQuantityArticles'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 import { fetchArticleList } from '../services/fetchArticleList'
 
@@ -9,7 +10,10 @@ const initialState: ArticlesPageSchema = {
   articles: [],
   isLoading: false,
   error: '',
-  viewMode: (getLocalStorage(ARTICLES_VIEW_STORAGE_KEY) as ViewModeArticle) || ViewModeArticle.List,
+  viewMode: ViewModeArticle.List,
+  page: 1,
+  limit: 3,
+  hasMore: true,
 }
 
 export const articlesPageSlice = createSlice({
@@ -18,8 +22,26 @@ export const articlesPageSlice = createSlice({
   reducers: {
     setViewMode: (state, action: PayloadAction<ViewModeArticle>) => {
       state.viewMode = action.payload
+      state.limit = getQuantityArticles(action.payload)
       localStorage.setItem(ARTICLES_VIEW_STORAGE_KEY, action.payload)
     },
+
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload
+    },
+
+    initState: (state) => {
+      const view = getLocalStorage(ARTICLES_VIEW_STORAGE_KEY) as ViewModeArticle
+      state.viewMode = view
+      state.limit = getQuantityArticles(view)
+    },
+
+    resetState: (state) => {
+      state.page = 1
+      state.articles = []
+      state.hasMore = true
+    },
+
   },
   extraReducers: (builder) => {
     builder.addCase(fetchArticleList.pending, (state) => {
@@ -28,7 +50,8 @@ export const articlesPageSlice = createSlice({
     })
     builder.addCase(fetchArticleList.fulfilled, (state, action) => {
       state.isLoading = false
-      state.articles = action.payload
+      state.articles = [...state.articles, ...action.payload]
+      state.hasMore = action.payload.length > 0
     })
     builder.addCase(fetchArticleList.rejected, (state, action) => {
       state.isLoading = false

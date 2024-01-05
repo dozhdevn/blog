@@ -8,3 +8,9 @@ export const getLoadingArticleList = (state: StoreSchema) => state.articlePage?.
 export const getArticleList = (state: StoreSchema) => state.articlePage?.articles || []
 
 export const getErrorArticleList = (state: StoreSchema) => state.articlePage?.error || ''
+
+export const getPageArticleList = (state: StoreSchema) => state.articlePage?.page || 1
+
+export const getLimitArticleList = (state: StoreSchema) => state.articlePage?.limit || 3
+
+export const getHasMoreArticleList = (state: StoreSchema) => state.articlePage?.hasMore || false

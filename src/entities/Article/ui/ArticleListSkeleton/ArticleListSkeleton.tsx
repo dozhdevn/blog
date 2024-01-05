@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import { getQuantityArticles } from '../../lib/getQuantityArticles'
 import { ViewModeArticle } from '../../model/types/article'
 import ArticleLargeSkeleton from '../ArticleLarge/ArticleLargeSkeleton'
 import ArticleSmallSkeleton from '../ArticleSmall/ArticleSmallSkeleton'
@@ -9,7 +10,7 @@ interface Props {
 }
 
 const ArticleListSkeleton: React.FC<Props> = ({ viewMode }) => {
-  const quantitySkeleton = viewMode === ViewModeArticle.List ? 3 : 15
+  const quantitySkeleton = getQuantityArticles(viewMode)
 
   return (
     <>

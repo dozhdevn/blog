@@ -24,13 +24,16 @@ const ArticleList: React.FC<Props> = ({
 }) => {
   const ArticleComponent = ArticleMap[viewMode]
 
-  const content = !isLoading ? (
-    articles.map((article) => <ArticleComponent key={article.id} article={article} isLoading={isLoading} />)
-  ) : (
-    <ArticleListSkeleton viewMode={viewMode} />
-  )
+  const content = articles.length > 0
+    && articles.map((article) => <ArticleComponent key={article.id} article={article} isLoading={isLoading} />)
 
-  return <div className={cn(styles.list, className)}>{content}</div>
+  const skeletons = isLoading && <ArticleListSkeleton viewMode={viewMode} />
+  return (
+    <div className={cn(styles.list, className)}>
+      {content}
+      {skeletons}
+    </div>
+  )
 }
 
 export default ArticleList

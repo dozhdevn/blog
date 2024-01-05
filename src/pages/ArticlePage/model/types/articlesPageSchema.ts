@@ -5,4 +5,7 @@ export interface ArticlesPageSchema {
   viewMode: ViewModeArticle
   isLoading: boolean
   error?: string
+  page: number
+  limit: number
+  hasMore: boolean
 }
