@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import cn from 'classnames'
 
 import { useThrottleFn } from 'shared/lib/hooks/useThrottleFn'
@@ -9,6 +9,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useSelector } from 'react-redux'
 import { getScrollPosition } from 'features/ScrollPosition/model/selectors/scrollPosition'
 import { StoreSchema } from 'app/store/config/types'
+import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll'
 import styles from './Page.module.scss'
 
 interface Props {
@@ -18,9 +19,7 @@ interface Props {
   onScrollEnd?: () => void
 }
 
-const Page: React.FC<Props> = ({
-  className, onScrollEnd, withSaveScroll = false, children,
-}) => {
+const Page: React.FC<Props> = ({ className, onScrollEnd, withSaveScroll = false, children }) => {
   const dispatch = useAppDispatch()
   const { pathname } = useLocation()
   const rootRef = useRef<HTMLDivElement | null>(null)
@@ -28,29 +27,7 @@ const Page: React.FC<Props> = ({
 
   const scrollPosition = useSelector((state: StoreSchema) => getScrollPosition(state, pathname))
 
-  useEffect(() => {
-    const triggerElement = triggerRef.current as HTMLDivElement
-
-    const options = {
-      root: rootRef.current,
-      rootMargin: '0px',
-      threshold: 1.0,
-    }
-
-    const callback = ([entry]: IntersectionObserverEntry[]) => {
-      if (entry.isIntersecting) {
-        onScrollEnd?.()
-      }
-    }
-
-    const observer = new IntersectionObserver(callback, options)
-
-    observer.observe(triggerElement)
-
-    return () => {
-      observer.unobserve(triggerElement)
-    }
-  }, [onScrollEnd])
+  useInfiniteScroll(rootRef, triggerRef, onScrollEnd)
 
   const scrollHandler = useThrottleFn((e: React.UIEvent<HTMLDivElement>) => {
     const position = e.currentTarget.scrollTop
@@ -60,7 +37,7 @@ const Page: React.FC<Props> = ({
         position,
       }),
     )
-  }, 500)
+  }, 300)
 
   useInitialEffect(() => {
     if (withSaveScroll && rootRef.current) {
