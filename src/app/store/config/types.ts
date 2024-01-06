@@ -10,11 +10,13 @@ import { EditableProfileSchema } from 'features/EditableProfile'
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
 import { ArticleCommentListSchema } from 'features/ArticleCommentList'
 import { ArticlesPageSchema } from 'pages/ArticlePage'
+import { ScrollPositionSchema } from 'features/ScrollPosition'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
   core: CoreSchema
   user: UserSchema
+  scroll: ScrollPositionSchema
 
   // async reducers
   profile?: ProfileSchema

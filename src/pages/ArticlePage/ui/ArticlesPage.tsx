@@ -47,7 +47,7 @@ const ArticlesPage = () => {
   }, [dispatch])
 
   return (
-    <Page onScrollEnd={handleNextArticles}>
+    <Page onScrollEnd={handleNextArticles} withSaveScroll>
       <ArticleViewSelector viewMode={view} onViewClick={onChangeViewArticles} />
       <ArticleList articles={articles} viewMode={view} isLoading={isLoading} className={styles.list} />
     </Page>
