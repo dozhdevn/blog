@@ -19,7 +19,9 @@ interface Props {
   onScrollEnd?: () => void
 }
 
-const Page: React.FC<Props> = ({ className, onScrollEnd, withSaveScroll = false, children }) => {
+const Page: React.FC<Props> = ({
+  className, onScrollEnd, withSaveScroll = false, children,
+}) => {
   const dispatch = useAppDispatch()
   const { pathname } = useLocation()
   const rootRef = useRef<HTMLDivElement | null>(null)
