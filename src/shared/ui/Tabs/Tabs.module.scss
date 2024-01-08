@@ -1,0 +1,19 @@
+.tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.tab {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  padding: 8px 30px;
+  border-radius: 6px;
+
+  .title {
+    color: var(--primary-color);
+  }
+}
+
+.selected {
+  background-color: var(--light-bg-color);
+}

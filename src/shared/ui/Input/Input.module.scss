@@ -1,9 +1,11 @@
 .input {
   $this: &;
+
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 54px;
+
+  // min-height: 54px;
 
   &__container {
     display: flex;
@@ -44,13 +46,13 @@
     margin-top: 4px;
     font-size: var(--font-size-s);
   }
-  
+
   &_error {
     #{$this}__container {
       border-color: var(--red-color);
     }
 
-    #{$this}__helperText, 
+    #{$this}__helperText,
     #{$this}__startIcon {
       color: var(--red-color);
     }

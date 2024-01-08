@@ -1,15 +1,22 @@
 import { User } from 'entities/User'
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
+  ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleBlockType {
   TEXT = 'TEXT',
   CODE = 'CODE',
-  IMAGE = 'IMAGE'
+  IMAGE = 'IMAGE',
+}
+
+export enum ArticleSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED = 'createdAt',
 }
 
 export interface AcrticleBlockBase {

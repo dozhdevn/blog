@@ -9,7 +9,7 @@ import { ProfileSchema } from 'entities/Profile'
 import { EditableProfileSchema } from 'features/EditableProfile'
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
 import { ArticleCommentListSchema } from 'features/ArticleCommentList'
-import { ArticlesPageSchema } from 'pages/ArticlePage'
+import { ArticlesPageSchema } from 'pages/ArticlesPage'
 import { ScrollPositionSchema } from 'features/ScrollPosition'
 import { CoreSchema } from '../../core'
 

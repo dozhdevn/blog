@@ -1,5 +1,5 @@
 import { StoreSchema } from 'app/store/config/types'
-import { ViewModeArticle } from 'entities/Article/model/types/article'
+import { ArticleSortField, ArticleType, ViewModeArticle } from 'entities/Article/model/types/article'
 
 export const getViewMode = (state: StoreSchema) => state.articlePage?.viewMode || ViewModeArticle.List
 
@@ -16,3 +16,11 @@ export const getLimitArticleList = (state: StoreSchema) => state.articlePage?.li
 export const getHasMoreArticleList = (state: StoreSchema) => state.articlePage?.hasMore || false
 
 export const getArticlePageInited = (state: StoreSchema) => state.articlePage?._inited || false
+
+export const getSortArticleList = (state: StoreSchema) => state.articlePage?.sort || ArticleSortField.CREATED
+
+export const getOrderArticleList = (state: StoreSchema) => state.articlePage?.order || 'asc'
+
+export const getSearchArticleList = (state: StoreSchema) => state.articlePage?.search || ''
+
+export const getTypeArticleList = (state: StoreSchema) => state.articlePage?.type || ArticleType.ALL

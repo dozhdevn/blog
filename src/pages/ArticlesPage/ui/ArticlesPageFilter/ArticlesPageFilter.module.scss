@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.topFilters {
+  display: flex;
+  justify-content: space-between;
+}
