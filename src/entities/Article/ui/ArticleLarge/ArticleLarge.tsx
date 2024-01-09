@@ -9,9 +9,8 @@ import { ArticleBlockType, ArticleProps, ArticleTextBlock } from '../../model/ty
 import styles from './ArticleLarge.module.scss'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleViews } from '../ArticleViews'
-import ArticleLargeSkeleton from './ArticleLargeSkeleton'
 
-const ArticleLarge: React.FC<ArticleProps> = ({ article, isLoading, className }) => {
+const ArticleLarge: React.FC<ArticleProps> = ({ article, className }) => {
   const history = useHistory()
   const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
   const textBlockWithParagraph = {

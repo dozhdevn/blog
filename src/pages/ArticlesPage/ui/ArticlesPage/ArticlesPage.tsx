@@ -15,7 +15,7 @@ import { ArticlesPageFilter } from '../ArticlesPageFilter'
 
 const config = {
   reducers: {
-    articlePage: articlesPageReducer,
+    articlesPage: articlesPageReducer,
   },
   removeAfterUnmount: false,
 }

@@ -7,7 +7,7 @@ import { PolymorphicRef } from '../__base/types/polimophic'
 
 const TypographyBase = <T extends React.ElementType>(props: TypographyProps<T>, ref: PolymorphicRef<T>) => {
   const {
-    as: Component = 'span',
+    as: Component = 'p',
     variant = 'text',
     color = 'default',
     align = 'left',

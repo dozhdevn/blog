@@ -63,5 +63,6 @@ export enum ViewModeArticle {
 export type ArticleProps = {
   article: Article
   isLoading: boolean
+  target?: React.HTMLAttributeAnchorTarget
   className?: string
 }

@@ -8,13 +8,15 @@ import styles from './ArticleSmall.module.scss'
 import { ArticleViews } from '../ArticleViews'
 import ArticleSmallSkeleton from './ArticleSmallSkeleton'
 
-const ArticleSmall: React.FC<ArticleProps> = ({ article, isLoading, className }) => {
+const ArticleSmall: React.FC<ArticleProps> = ({
+  article, isLoading, target, className,
+}) => {
   if (isLoading) {
     return <ArticleSmallSkeleton />
   }
 
   return (
-    <Link className={cn(styles.article, className)} to={`/articles/${article.id}`}>
+    <Link className={cn(styles.article, className)} to={`/articles/${article.id}`} target={target}>
       <img src={article.img} alt={article.title} className={styles.img} />
       <div className={styles.info}>
         <Typography className={styles.types}>{article.type.join(', ')}</Typography>

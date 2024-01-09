@@ -11,6 +11,7 @@ interface Props {
   articles: Article[]
   isLoading: boolean
   viewMode: ViewModeArticle
+  target?: React.HTMLAttributeAnchorTarget
   className?: string
 }
 
@@ -20,12 +21,14 @@ const ArticleMap: Record<ViewModeArticle, React.FC<ArticleProps>> = {
 }
 
 const ArticleList: React.FC<Props> = ({
-  articles, isLoading, viewMode, className,
+  articles, isLoading, viewMode, target, className,
 }) => {
   const ArticleComponent = ArticleMap[viewMode]
 
   const content = articles.length > 0
-    && articles.map((article) => <ArticleComponent key={article.id} article={article} isLoading={isLoading} />)
+    && articles.map((article) => (
+      <ArticleComponent key={article.id} article={article} isLoading={isLoading} target={target} />
+    ))
 
   const skeletons = isLoading && <ArticleListSkeleton viewMode={viewMode} />
   return (

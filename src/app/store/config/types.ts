@@ -8,9 +8,9 @@ import { AppDispatch } from 'app/store'
 import { ProfileSchema } from 'entities/Profile'
 import { EditableProfileSchema } from 'features/EditableProfile'
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema'
-import { ArticleCommentListSchema } from 'features/ArticleCommentList'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
 import { ScrollPositionSchema } from 'features/ScrollPosition'
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
@@ -23,8 +23,8 @@ export interface StoreSchema {
   editProfile?: EditableProfileSchema
   login?: LoginSchema
   article?: ArticleDetailsSchema
-  articleComments?: ArticleCommentListSchema
-  articlePage?: ArticlesPageSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
+  articlesPage?: ArticlesPageSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema
