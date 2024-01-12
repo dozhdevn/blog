@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { useSelector } from 'react-redux'
 import { Avatar } from 'shared/ui/Avatar'
 import { Typography } from 'shared/ui/Typography'
+import { Flex } from 'shared/ui/Flex'
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article'
 import { getArticle, getArticleError, getArticleLoading } from '../../model/selectors/articleDetails'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
@@ -66,19 +67,21 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id, className })
 
   return (
     <div className={cn(styles.articleDetails, className)}>
-      <div className={styles.articleDetails__header}>
+      <Flex gap={12} className={styles.articleDetails__header}>
         <Avatar src={article?.user.avatar} size={32} />
         <Typography>{article?.user.username}</Typography>
         <Typography>{article?.createdAt}</Typography>
-      </div>
+      </Flex>
       <Typography as='h2' variant='title' className={styles.articleDetails__title}>
         {article?.title}
       </Typography>
-      <Typography as='h3' variant='subTitle'>{article?.subtitle}</Typography>
+      <Typography as='h3' variant='subTitle'>
+        {article?.subtitle}
+      </Typography>
 
-      <div className={styles.articleDetails__imgWrap}>
+      <Flex justify='center'>
         <img src={article?.img} alt={article?.title} className={styles.articleDetails__img} />
-      </div>
+      </Flex>
 
       {article?.blocks.map(renderBlock)}
     </div>

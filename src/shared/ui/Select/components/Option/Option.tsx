@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Flex } from 'shared/ui/Flex'
 import styles from './Option.module.scss'
 
 export interface OptionProps {
@@ -7,7 +8,7 @@ export interface OptionProps {
 }
 
 export const Option: React.FC<OptionProps> = ({ onClick, children }) => (
-  <li onClick={onClick} role='menuitem' className={styles.option}>
+  <Flex as='li' onClick={onClick} role='menuitem' className={styles.option}>
     {children}
-  </li>
+  </Flex>
 )

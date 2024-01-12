@@ -5,6 +5,7 @@ import cn from 'classnames'
 
 import { Typography } from 'shared/ui/Typography'
 import styles from './Input.module.scss'
+import { Flex } from '../Flex'
 
 type HTMLInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
@@ -71,7 +72,9 @@ export const Input = memo(
     )
 
     return (
-      <div
+      <Flex
+        direction='column'
+        align='stretch'
         className={cn(
           styles.input,
 
@@ -84,7 +87,7 @@ export const Input = memo(
         ref={ref}
       >
         {labelComponent}
-        <div
+        <Flex
           className={cn(
             styles.input__container,
             {
@@ -105,9 +108,9 @@ export const Input = memo(
             className={cn(styles.input__item, classNameInput)}
             ref={inputRef}
           />
-        </div>
+        </Flex>
         {helperTextMessage}
-      </div>
+      </Flex>
     )
   }),
 )

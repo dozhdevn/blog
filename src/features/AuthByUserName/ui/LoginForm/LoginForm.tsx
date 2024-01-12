@@ -11,6 +11,7 @@ import { getAuthData } from 'entities/User'
 import { Typography } from 'shared/ui/Typography'
 import { ReducersList } from 'widgets/layouts/DynamicModuleLoader'
 import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers'
+import { Flex } from 'shared/ui/Flex'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername'
@@ -74,7 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
   }, [authData, onClose])
 
   return (
-    <form onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
+    <Flex as='form' direction='column' onSubmit={onSubmitHandler} className={cn(styles.loginForm, className)}>
       <Typography variant='title' className={styles.loginForm__title}>
         Войти
       </Typography>
@@ -95,7 +96,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ onClose, className }) => {
         helperText={error}
       />
       <Button disabled={isLoading}>{t('Войти')}</Button>
-    </form>
+    </Flex>
   )
 })
 

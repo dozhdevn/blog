@@ -1,9 +1,8 @@
-import cn from 'classnames'
 import React, { useState } from 'react'
 import { Button } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
 
-import styles from './AddCommentForm.module.scss'
+import { Flex } from 'shared/ui/Flex'
 
 interface Props {
   onSendComment: (text: string) => void
@@ -23,10 +22,10 @@ const AddCommentForm: React.FC<Props> = ({ onSendComment, className }) => {
   }
 
   return (
-    <div className={cn(styles.root, className)}>
+    <Flex className={className}>
       <Input onChange={onCommentTextChange} value={text} placeholder='Написать комментарий...' />
       <Button onClick={onSendHandler}>Отправить</Button>
-    </div>
+    </Flex>
   )
 }
 

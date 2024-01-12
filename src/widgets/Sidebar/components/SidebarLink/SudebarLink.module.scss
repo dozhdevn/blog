@@ -1,7 +1,6 @@
 .sidebarLink {
   $this: &;
-  display: flex;
-  align-items: center;
+
   padding-left: 10px;
 
   &_active {
@@ -21,7 +20,7 @@
   }
 
   &__icon {
-    color: var(--icon-color)
+    color: var(--icon-color);
   }
 
   &__title {

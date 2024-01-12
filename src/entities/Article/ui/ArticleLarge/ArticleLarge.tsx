@@ -4,6 +4,7 @@ import { Avatar } from 'shared/ui/Avatar'
 import { Typography } from 'shared/ui/Typography'
 import { Button } from 'shared/ui/Button'
 import { useHistory } from 'react-router-dom'
+import { Flex } from 'shared/ui/Flex'
 import { ArticleBlockType, ArticleProps, ArticleTextBlock } from '../../model/types/article'
 
 import styles from './ArticleLarge.module.scss'
@@ -23,14 +24,14 @@ const ArticleLarge: React.FC<ArticleProps> = ({ article, className }) => {
   }
 
   return (
-    <div className={cn(styles.article, className)}>
-      <div className={styles.header}>
-        <div className={styles.userInfo}>
+    <Flex direction='column' align='stretch' gap={16} className={cn(styles.article, className)}>
+      <Flex justify='between'>
+        <Flex gap={8}>
           <Avatar src={article.user.avatar} size={40} />
           <Typography>{article.user.username}</Typography>
-        </div>
+        </Flex>
         <Typography>{article.createdAt}</Typography>
-      </div>
+      </Flex>
 
       <Typography as='h3' variant='title'>
         {article.title}
@@ -42,13 +43,13 @@ const ArticleLarge: React.FC<ArticleProps> = ({ article, className }) => {
       <img src={article.img} alt={article.title} className={styles.img} />
       <ArticleTextBlockComponent block={textBlockWithParagraph} />
 
-      <div className={styles.footer}>
+      <Flex justify='between'>
         <Button variant='contained' onClick={onClickReadMore}>
           Читать далее...
         </Button>
         <ArticleViews views={article.views} />
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   )
 }
 

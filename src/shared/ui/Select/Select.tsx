@@ -8,6 +8,7 @@ import { SelectProps } from './types'
 
 import styles from './Select.module.scss'
 import { Option } from './components/Option/Option'
+import { Flex } from '../Flex'
 
 const Select = <T,>({
   value,
@@ -62,7 +63,9 @@ const Select = <T,>({
   ))
 
   return (
-    <div
+    <Flex
+      direction='column'
+      align='stretch'
       className={cn(
         styles.select,
         {
@@ -79,13 +82,13 @@ const Select = <T,>({
           <ArrowIcon />
         </div>
 
-        <div onClick={handlePlaceholderClick} className={styles.select__placeholder}>
+        <Flex onClick={handlePlaceholderClick} className={styles.select__placeholder}>
           {labelView || placeholder}
-        </div>
+        </Flex>
 
         {openSelect && <ul className={styles.select__list}>{dropdownList}</ul>}
       </div>
-    </div>
+    </Flex>
   )
 }
 

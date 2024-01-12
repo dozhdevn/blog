@@ -5,6 +5,7 @@ import { ArticleSortField } from 'entities/Article'
 import { SortOrder } from 'shared/types'
 
 import Select from 'shared/ui/Select'
+import { Flex } from 'shared/ui/Flex'
 import styles from './ArticleSortSelector.module.scss'
 import { orderOptions, sortOptions } from '../model/consts'
 
@@ -19,10 +20,10 @@ interface Props {
 const ArticleSortSelector: React.FC<Props> = ({
   sort, order, onChangeSort, onChangeOrder, className,
 }) => (
-  <div className={cn(styles.root, className)}>
+  <Flex align='end' gap={20} className={cn(styles.root, className)}>
     <Select value={sort} options={sortOptions} onChange={onChangeSort} label='Сортировать по' />
     <Select value={order} options={orderOptions} onChange={onChangeOrder} />
-  </div>
+  </Flex>
 )
 
 export default ArticleSortSelector

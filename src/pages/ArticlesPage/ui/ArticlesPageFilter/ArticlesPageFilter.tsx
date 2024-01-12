@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-import cn from 'classnames'
 
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { useSelector } from 'react-redux'
@@ -10,6 +9,7 @@ import { ArticleSortSelector } from 'features/ArticleSortSelector'
 import { Input } from 'shared/ui/Input'
 import { useDebounceFn } from 'shared/lib/hooks/useDebounceFn'
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
+import { Flex } from 'shared/ui/Flex'
 import {
   getOrderArticleList,
   getSearchArticleList,
@@ -19,8 +19,6 @@ import {
 } from '../../model/selectors/articlePageSelectors'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
 import { fetchArticleList } from '../../model/services/fetchArticleList'
-
-import styles from './ArticlesPageFilter.module.scss'
 
 interface Props {
   className?: string
@@ -83,8 +81,8 @@ const ArticlesPageFilter: React.FC<Props> = ({ className }) => {
   )
 
   return (
-    <div className={cn(styles.root, className)}>
-      <div className={styles.topFilters}>
+    <Flex direction='column' align='stretch' gap={24} className={className}>
+      <Flex justify='between'>
         <ArticleSortSelector
           sort={sort}
           order={order}
@@ -92,12 +90,12 @@ const ArticlesPageFilter: React.FC<Props> = ({ className }) => {
           onChangeOrder={onChangeOrderArticles}
         />
         <ArticleViewSelector viewMode={view} onViewClick={onChangeViewArticles} />
-      </div>
+      </Flex>
 
       <Input placeholder='Поиск' value={search} onChange={onChangeSearchArticles} />
 
       <ArticleTypeTabs value={type} onChange={onChangeTypeArticles} />
-    </div>
+    </Flex>
   )
 }
 

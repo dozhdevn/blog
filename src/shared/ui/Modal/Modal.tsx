@@ -3,6 +3,7 @@ import { Portal } from 'shared/ui/Portal'
 
 import cn from 'classnames'
 import styles from './Modal.module.scss'
+import { Flex } from '../Flex'
 
 export interface ModalProps {
   open: boolean
@@ -54,9 +55,9 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <Portal>
-      <div className={cn(styles.modal, className)} ref={rootRef}>
+      <Flex justify='center' className={cn(styles.modal, className)} ref={rootRef}>
         <div className={cn(styles.modal__content, classNameContent)}>{children}</div>
-      </div>
+      </Flex>
     </Portal>
   )
 }

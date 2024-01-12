@@ -9,6 +9,7 @@ import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
 
 import { ProfileErrors } from 'features/EditableProfile'
+import { Flex } from 'shared/ui/Flex'
 import styles from './ProfileCard.module.scss'
 
 export interface ProfileCardProps {
@@ -44,7 +45,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(
     className,
   }) => {
     const content = (
-      <div className={styles.profileCard__fields}>
+      <Flex justify='between' wrap='wrap'>
         <Input
           label='Имя пользователя'
           value={profile?.firstname}
@@ -107,7 +108,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = memo(
           disabled={!isEditable}
           onChange={onChangeCountry}
         />
-      </div>
+      </Flex>
     )
 
     const footer = renderFooter && renderFooter()

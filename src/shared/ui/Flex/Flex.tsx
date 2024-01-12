@@ -50,6 +50,7 @@ const FlexBase = <T extends React.ElementType = 'div'>(props: FlexProps<T>, ref:
   } = props
 
   const classNames = cn(
+    styles.flex,
     directionClasses[direction],
     justifyClasses[justify],
     alignClasses[align],

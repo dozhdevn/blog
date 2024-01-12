@@ -5,6 +5,7 @@ import ArrowHorizontal from 'shared/assets/icons/svg/arrow-horizontal.svg'
 import { IconButton } from 'shared/ui/IconButton'
 import { useSelector } from 'react-redux'
 import { getIsAuth } from 'entities/User/model/selectors/getIsAuth'
+import { Flex } from 'shared/ui/Flex'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import { LanguageSwitch } from '../LanguageSwitch'
 
@@ -33,8 +34,15 @@ export const Sidebar: React.FC = () => {
   })
 
   return (
-    <div className={cn(styles.sidebar, { [styles.sidebar_collapsed]: collapsed })}>
-      <div className={styles.sidebar__links}>{sidebarLinks}</div>
+    <Flex
+      direction='column'
+      justify='between'
+      align='stretch'
+      className={cn(styles.sidebar, { [styles.sidebar_collapsed]: collapsed })}
+    >
+      <Flex direction='column' align='stretch' gap={20}>
+        {sidebarLinks}
+      </Flex>
 
       <IconButton
         onClick={handleToggleColapsed}
@@ -42,10 +50,10 @@ export const Sidebar: React.FC = () => {
       >
         <ArrowHorizontal />
       </IconButton>
-      <div className={styles.sidebar__switchers}>
+      <Flex justify='center' gap={8} className={styles.sidebar__switchers}>
         <ThemeSwitcher />
         <LanguageSwitch />
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   )
 }

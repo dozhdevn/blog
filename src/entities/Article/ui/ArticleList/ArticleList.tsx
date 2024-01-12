@@ -1,9 +1,8 @@
 import React from 'react'
-import cn from 'classnames'
+import { Flex } from 'shared/ui/Flex'
 import { Article, ArticleProps, ViewModeArticle } from '../../model/types/article'
 import { ArticleLarge } from '../ArticleLarge'
 
-import styles from './ArticleList.module.scss'
 import { ArticleSmall } from '../ArticleSmall'
 import { ArticleListSkeleton } from '../ArticleListSkeleton'
 
@@ -32,10 +31,10 @@ const ArticleList: React.FC<Props> = ({
 
   const skeletons = isLoading && <ArticleListSkeleton viewMode={viewMode} />
   return (
-    <div className={cn(styles.list, className)}>
+    <Flex wrap='wrap' gap={20} className={className}>
       {content}
       {skeletons}
-    </div>
+    </Flex>
   )
 }
 

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { getIsEditableProfile } from 'features/EditableProfile/model/selectors/getIsEditableProfile'
 import { editableProfileActions, editProfileCard } from 'features/EditableProfile'
 import { getProfile } from 'entities/Profile/model/selectors/getProfile'
-import styles from './ProfilePageFooter.module.scss'
+import { Flex } from 'shared/ui/Flex'
 
 export const ProfilePageFooter = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -40,5 +40,5 @@ export const ProfilePageFooter = (): JSX.Element => {
     </Button>
   )
 
-  return <div className={styles.profilePageFooter}>{buttons}</div>
+  return <Flex justify='end' gap={20}>{buttons}</Flex>
 }

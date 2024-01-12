@@ -1,9 +1,9 @@
 import React from 'react'
-import cn from 'classnames'
 
 import EyeIcon from 'shared/assets/icons/svg/eye.svg'
 
 import { Typography } from 'shared/ui/Typography'
+import { Flex } from 'shared/ui/Flex'
 import styles from './ArticleViews.module.scss'
 
 interface Props {
@@ -12,10 +12,10 @@ interface Props {
 }
 
 const ArticleViews: React.FC<Props> = ({ views, className }) => (
-  <div className={cn(styles.views, className)}>
+  <Flex className={className}>
     <EyeIcon className={styles.icon} />
     <Typography>{views}</Typography>
-  </div>
+  </Flex>
 )
 
 export default ArticleViews

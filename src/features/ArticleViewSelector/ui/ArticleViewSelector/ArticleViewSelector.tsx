@@ -6,6 +6,7 @@ import { ViewModeArticle } from 'entities/Article/model/types/article'
 import TyleIcon from 'shared/assets/icons/svg/tile.svg'
 import ListIcon from 'shared/assets/icons/svg/list.svg'
 
+import { Flex } from 'shared/ui/Flex'
 import styles from './ArticleViewSelector.module.scss'
 
 const articleViewModes = [
@@ -31,11 +32,12 @@ const ArticleViewSelector: React.FC<Props> = ({ viewMode, onViewClick, className
   }
 
   return (
-    <div className={cn(styles.root, className)}>
+    <Flex className={cn(styles.root, className)}>
       {articleViewModes.map(({ value, icon: Icon }) => {
         const checked = value === viewMode
         return (
-          <label
+          <Flex
+            as='label'
             htmlFor={value}
             key={value}
             className={cn(styles.label, styles[`label-${value}`], checked && styles.checked)}
@@ -49,10 +51,10 @@ const ArticleViewSelector: React.FC<Props> = ({ viewMode, onViewClick, className
               className={styles.input}
             />
             <Icon className={styles.icon} />
-          </label>
+          </Flex>
         )
       })}
-    </div>
+    </Flex>
   )
 }
 

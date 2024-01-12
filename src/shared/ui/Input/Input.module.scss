@@ -1,18 +1,21 @@
 .input {
   $this: &;
 
-  display: flex;
-  flex-direction: column;
   width: 100%;
 
   // min-height: 54px;
 
   &__container {
-    display: flex;
-    align-items: center;
     border-radius: 10px;
     border: 1px solid var(--icon-color);
     width: 100%;
+
+    &__startIcon {
+      width: 14px;
+      height: 14px;
+      margin-left: 17px;
+      color: var(--icon-color);
+    }
 
     &_active {
       border-color: var(--accent-color);
@@ -33,13 +36,6 @@
   &__label {
     margin-bottom: 4px;
     font-size: var(--font-size-s);
-  }
-
-  &__startIcon {
-    width: 14px;
-    height: 14px;
-    margin-left: 17px;
-    color: var(--icon-color);
   }
 
   &__helperText {

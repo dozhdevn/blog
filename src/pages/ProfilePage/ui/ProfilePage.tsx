@@ -19,6 +19,7 @@ import { Currency } from 'entities/Currency'
 import { getEditProfileErrors } from 'features/EditableProfile/model/selectors/getEditProfileErrors'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page'
+import { Flex } from 'shared/ui/Flex'
 import { ProfilePageFooter } from './ProfilePageFooter'
 
 import styles from './ProfilePage.module.scss'
@@ -133,7 +134,7 @@ const ProfilePage: React.FC = () => {
 
   return (
     <DynamicModuleLoader {...config}>
-      <Page className={styles.profilePage}>{renderContent}</Page>
+      <Flex as={Page} direction='column' gap={20} className={styles.profilePage}>{renderContent}</Flex>
     </DynamicModuleLoader>
   )
 }

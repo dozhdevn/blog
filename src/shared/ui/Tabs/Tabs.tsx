@@ -1,8 +1,8 @@
-import React from 'react'
 import cn from 'classnames'
 
 import styles from './Tabs.module.scss'
 import { Typography } from '../Typography'
+import { Flex } from '../Flex'
 
 interface Tab<T = string> {
   value: T
@@ -23,7 +23,7 @@ const Tabs = <T,>({
     onChange(value)
   }
   return (
-    <div className={cn(styles.tabs, className)}>
+    <Flex gap={12} className={className}>
       {tabs.map((tab) => {
         const selected = tab.value === value
         return (
@@ -38,7 +38,7 @@ const Tabs = <T,>({
           </div>
         )
       })}
-    </div>
+    </Flex>
   )
 }
 export default Tabs

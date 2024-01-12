@@ -1,19 +1,10 @@
 .articleDetails {
-
   &__header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     margin-bottom: 12px;
   }
 
   &__title {
     margin-bottom: 16px;
-  }
-
-  &__imgWrap {
-    display: flex;
-    justify-content: center;
   }
 
   &__img {

@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { getAuthData, userActions } from 'entities/User'
 import { useSelector } from 'react-redux'
 
+import { Flex } from 'shared/ui/Flex'
 import styles from './Navbar.module.scss'
 
 export interface NavbarProps {
@@ -42,9 +43,9 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   )
 
   return (
-    <div className={cn(styles.navbar, className)}>
+    <Flex className={cn(styles.navbar, className)}>
       <div className={styles.navbar__links}>{loginButton}</div>
       <LoginModal open={openLoginModal} onClose={closeLoginModalHandler} />
-    </div>
+    </Flex>
   )
 }
