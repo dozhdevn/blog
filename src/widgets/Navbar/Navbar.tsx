@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   )
 
   return (
-    <Flex className={cn(styles.navbar, className)}>
+    <Flex as='header' className={cn(styles.navbar, className)}>
       <div className={styles.navbar__links}>{loginButton}</div>
       <LoginModal open={openLoginModal} onClose={closeLoginModalHandler} />
     </Flex>

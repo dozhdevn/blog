@@ -35,12 +35,13 @@ export const Sidebar: React.FC = () => {
 
   return (
     <Flex
+      as='aside'
       direction='column'
       justify='between'
       align='stretch'
       className={cn(styles.sidebar, { [styles.sidebar_collapsed]: collapsed })}
     >
-      <Flex direction='column' align='stretch' gap={20}>
+      <Flex as='nav' direction='column' align='stretch' gap={20}>
         {sidebarLinks}
       </Flex>
 
