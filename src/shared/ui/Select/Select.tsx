@@ -1,9 +1,10 @@
 import React, {
-  Key, useEffect, useRef, useState,
+  Key, useRef, useState,
 } from 'react'
 import cn from 'classnames'
 import ArrowIcon from 'shared/assets/icons/svg/arrow-horizontal.svg'
 import { TypedMemo } from 'shared/ui/__base/components/TypedMemo'
+import { useClickOutside } from 'shared/lib/hooks/useOutsideClick'
 import { SelectProps } from './types'
 
 import styles from './Select.module.scss'
@@ -41,20 +42,10 @@ const Select = <T,>({
     setOpenSelect((prev) => !prev)
   }
 
-  useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      if (event.target instanceof Node && !rootRef.current?.contains(event.target)) {
-        setOpenSelect(false)
-        onClose?.()
-      }
-    }
-
-    window.addEventListener('click', handleClick)
-
-    return () => {
-      window.removeEventListener('click', handleClick)
-    }
-  }, [onClose])
+  useClickOutside(rootRef, () => {
+    setOpenSelect(false)
+    onClose?.()
+  })
 
   const dropdownList = options.map((option) => (
     <Option key={option.value as Key} onClick={handleOptionClick(option.value)}>
