@@ -11,6 +11,10 @@ import { getAuthData, userActions } from 'entities/User'
 import { useSelector } from 'react-redux'
 
 import { Flex } from 'shared/ui/Flex'
+import { Dropdown } from 'shared/ui/Dropdown'
+import { Avatar } from 'shared/ui/Avatar'
+import { AppLink } from 'shared/ui/AppLink'
+import { RoutePath } from 'app/routes/model/routePaths'
 import styles from './Navbar.module.scss'
 
 export interface NavbarProps {
@@ -37,7 +41,19 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   }, [dispatch])
 
   const loginButton = authData ? (
-    <Button onClick={logOutHandler}>Выйти</Button>
+    <Dropdown
+      items={[
+        {
+          label: <AppLink to={`${RoutePath.PROFILE}/${authData.id}`}>Профиль</AppLink>,
+        },
+        {
+          label: <button onClick={logOutHandler}>Выйти</button>,
+        },
+      ]}
+      placement='bottomLeft'
+    >
+      <Avatar src={authData.avatar} size={35} />
+    </Dropdown>
   ) : (
     <Button onClick={openLoginModalHandler}>{t('Войти')}</Button>
   )

@@ -11,6 +11,7 @@ import { withAuth } from 'shared/lib/hocs/withAuth'
 
 import { useSelector } from 'react-redux'
 import { getUserInited } from 'entities/User/model/selectors/getUserInited'
+import { Flex } from 'shared/ui/Flex'
 import { withTheme } from './core'
 import './app.scss'
 
@@ -21,10 +22,10 @@ const App: React.FC = () => {
       <Suspense fallback={<div>Загрузка</div>}>
         <div className='app'>
           <Navbar />
-          <div className='content-page'>
+          <Flex align='stretch'>
             <Sidebar />
             {inited && <AppRouter />}
-          </div>
+          </Flex>
         </div>
       </Suspense>
     </BrowserRouter>

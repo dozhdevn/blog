@@ -9,10 +9,23 @@ button,
 textarea,
 select {
   background-color: transparent;
+  color: inherit;
   margin: 0;
   border: 0;
   outline: none;
   font: inherit
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {

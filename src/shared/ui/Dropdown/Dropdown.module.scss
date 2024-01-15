@@ -1,0 +1,52 @@
+.dropdown {
+  position: relative;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.list {
+  width: 100%;
+  min-width: 120px;
+  position: absolute;
+  z-index: 9999;
+  margin-top: 5px;
+  border-radius: 7px;
+  border: 1px solid var(--light-bg-color);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.item {
+  cursor: pointer;
+  background: var(--primary-bg-color);
+  color: var(--primary-color);
+  padding: 10px;
+  height: 32px;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--light-bg-color);
+  }
+}
+
+.topLeft {
+  right: 0;
+  bottom: 100%;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 0;
+}
