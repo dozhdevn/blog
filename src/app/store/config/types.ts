@@ -11,12 +11,14 @@ import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetail
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
 import { ScrollPositionSchema } from 'features/ScrollPosition'
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
+import { rtkApi } from 'shared/api/rtkApi'
 import { CoreSchema } from '../../core'
 
 export interface StoreSchema {
   core: CoreSchema
   user: UserSchema
   scroll: ScrollPositionSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   profile?: ProfileSchema

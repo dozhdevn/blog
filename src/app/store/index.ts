@@ -5,6 +5,7 @@ import { coreReducer } from 'app/core'
 import { userReducer } from 'entities/User'
 import { $axios } from 'shared/api/api'
 import { scrollReducer } from 'features/ScrollPosition'
+import { rtkApi } from 'shared/api/rtkApi'
 import { StoreSchema, ThunkExtraArg } from './config/types'
 import { createReducerManager } from './config/reducerManager'
 
@@ -13,6 +14,7 @@ export const createReduxStore = (initialState?: StoreSchema) => {
     core: coreReducer,
     user: userReducer,
     scroll: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)
@@ -30,7 +32,7 @@ export const createReduxStore = (initialState?: StoreSchema) => {
         thunk: {
           extraArgument,
         },
-      }),
+      }).concat(rtkApi.middleware),
   })
   // @ts-ignore
   store.reducerManager = reducerManager
