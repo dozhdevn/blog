@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getLocalStorage } from 'shared/lib/utils/getLocalStorage'
-import { CoreSchema, Theme } from '../types/types'
+import { CoreSchema } from '../types/types'
+import { Theme } from '../consts/consts'
 
 const initialState: CoreSchema = {
   theme: (getLocalStorage('theme') as Theme) || Theme.LIGHT,

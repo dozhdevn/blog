@@ -1,7 +1,7 @@
 import { Typography } from 'shared/ui/Typography'
 import { ArticleList } from 'entities/Article/ui/ArticleList'
-import { ViewModeArticle } from 'entities/Article/model/types/article'
 
+import { ViewModeArticle } from 'entities/Article'
 import styles from './ArticleRecommendationList.module.scss'
 import { useArticleRecommendationsList } from '../api/recommendationsApi'
 

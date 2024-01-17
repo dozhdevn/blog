@@ -1,5 +1,5 @@
 import { StoreSchema } from 'app/store/config/types'
-import { ArticleSortField, ArticleType, ViewModeArticle } from 'entities/Article/model/types/article'
+import { ViewModeArticle, ArticleSortField, ArticleType } from 'entities/Article'
 
 export const getViewMode = (state: StoreSchema) => state.articlesPage?.viewMode || ViewModeArticle.List
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex } from 'shared/ui/Flex'
-import { Article, ArticleProps, ViewModeArticle } from '../../model/types/article'
+import { Article, ArticleProps } from '../../model/types/article'
+import { ViewModeArticle } from '../../model/consts/consts'
 import { ArticleLarge } from '../ArticleLarge'
 
 import { ArticleSmall } from '../ArticleSmall'

@@ -1,5 +1,5 @@
 import { Profile } from 'entities/Profile'
-import { ProfileSchemaValidationKeys, ValidateProfileError } from '../services/validateProfile/validateProfile'
+import { ProfileSchemaValidationKeys, ValidateProfileError } from '../consts/consts'
 
 export type ProfileErrors = { [key in ProfileSchemaValidationKeys]?: ValidateProfileError}
 

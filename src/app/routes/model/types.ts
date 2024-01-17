@@ -1,4 +1,4 @@
-import { UserRole } from 'entities/User/model/types/user'
+import { UserRole } from 'entities/User'
 
 export interface RouterConfig {
   path: string

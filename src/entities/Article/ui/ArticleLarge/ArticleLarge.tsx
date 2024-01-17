@@ -5,18 +5,19 @@ import { Typography } from 'shared/ui/Typography'
 import { Button } from 'shared/ui/Button'
 import { useHistory } from 'react-router-dom'
 import { Flex } from 'shared/ui/Flex'
-import { ArticleBlockType, ArticleProps, ArticleTextBlock } from '../../model/types/article'
-
-import styles from './ArticleLarge.module.scss'
+import { ArticleProps, ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleViews } from '../ArticleViews'
+import { ArticleBlockType } from '../../model/consts/consts'
+
+import styles from './ArticleLarge.module.scss'
 
 const ArticleLarge: React.FC<ArticleProps> = ({ article, className }) => {
   const history = useHistory()
   const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
   const textBlockWithParagraph = {
     ...textBlock,
-    paragraphs: textBlock.paragraphs.slice(0, 1),
+    paragraphs: textBlock?.paragraphs.slice(0, 1) || [],
   }
 
   const onClickReadMore = () => {

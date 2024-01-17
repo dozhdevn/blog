@@ -1,7 +1,4 @@
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark'
-}
+import { Theme } from '../consts/consts'
 
 export interface CoreSchema {
   theme: Theme

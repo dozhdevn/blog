@@ -1,6 +1,6 @@
 import {
   Article, ArticleSortField, ArticleType, ViewModeArticle,
-} from 'entities/Article/model/types/article'
+} from 'entities/Article'
 import { SortOrder } from 'shared/types'
 
 export interface ArticlesPageSchema {

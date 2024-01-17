@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { getQuantityArticles } from '../../lib/getQuantityArticles'
-import { ViewModeArticle } from '../../model/types/article'
 import ArticleLargeSkeleton from '../ArticleLarge/ArticleLargeSkeleton'
 import ArticleSmallSkeleton from '../ArticleSmall/ArticleSmallSkeleton'
+import { ViewModeArticle } from '../../model/consts/consts'
 
 interface Props {
   viewMode: ViewModeArticle

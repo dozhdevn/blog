@@ -4,8 +4,9 @@ import { ThunkConfig } from 'app/store/config/types'
 import { isEmpti } from 'shared/lib/utils/isEmpty'
 import { getProfileForm } from '../../selectors/getProfileForm'
 import { editableProfileActions } from '../../slice/editableProfile'
-import { ValidateProfileError, validateProfile } from '../validateProfile/validateProfile'
+import { validateProfile } from '../validateProfile/validateProfile'
 import { ProfileErrors } from '../../types/editableProfile'
+import { ValidateProfileError } from '../../consts/consts'
 
 export const editProfileCard = createAsyncThunk<Profile, void, ThunkConfig<ProfileErrors>>(
   'editProfile/profile',

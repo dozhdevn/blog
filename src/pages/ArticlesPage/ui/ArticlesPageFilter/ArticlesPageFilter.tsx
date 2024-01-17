@@ -2,7 +2,6 @@ import React, { useCallback } from 'react'
 
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { useSelector } from 'react-redux'
-import { ArticleSortField, ArticleType, ViewModeArticle } from 'entities/Article/model/types/article'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { SortOrder } from 'shared/types'
 import { ArticleSortSelector } from 'features/ArticleSortSelector'
@@ -10,6 +9,7 @@ import { Input } from 'shared/ui/Input'
 import { useDebounceFn } from 'shared/lib/hooks/useDebounceFn'
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
 import { Flex } from 'shared/ui/Flex'
+import { ArticleSortField, ArticleType, ViewModeArticle } from 'entities/Article'
 import {
   getOrderArticleList,
   getSearchArticleList,

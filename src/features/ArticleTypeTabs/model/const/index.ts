@@ -1,4 +1,4 @@
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType } from 'entities/Article'
 
 export const typeTabs = [
   {

@@ -1,6 +1,6 @@
-import { ArticleType } from 'entities/Article/model/types/article'
 import React from 'react'
 import { Tabs } from 'shared/ui/Tabs'
+import { ArticleType } from 'entities/Article'
 import { typeTabs } from '../model/const'
 
 interface Props {
