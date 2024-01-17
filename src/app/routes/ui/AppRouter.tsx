@@ -9,7 +9,7 @@ export const AppRouter: React.FC = () => (
     <Switch>
       {routerConfig.map((route) => {
         if (route.private) {
-          return <PrivateRouter key={route.path} {...route} />
+          return <PrivateRouter key={route.path} roles={route.roles} {...route} />
         }
 
         return <Route key={route.path} {...route} render={() => <route.component />} />
