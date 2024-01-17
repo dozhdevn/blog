@@ -7,9 +7,9 @@ import styles from './Dropdown.module.scss'
 import { Flex } from '../Flex'
 import { DropdownProps } from './types'
 
-const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown = ({
   items, placement = 'bottomRight', children, className,
-}) => {
+}: DropdownProps) => {
   const [open, setOpen] = useState(false)
 
   const rootRef = useRef<HTMLDivElement | null>(null)

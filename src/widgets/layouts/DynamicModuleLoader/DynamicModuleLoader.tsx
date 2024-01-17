@@ -12,13 +12,14 @@ export type ReducersList = {
 export interface DynamicModuleLoaderProps {
   reducers: ReducersList
   removeAfterUnmount?: boolean
+  children?: React.ReactNode
 }
 
-export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
+export const DynamicModuleLoader = ({
   reducers,
   removeAfterUnmount = true,
   children,
-}) => {
+}: DynamicModuleLoaderProps) => {
   const store = useStore() as ReduxStoreWithManager
   const dispatch = useAppDispatch()
 

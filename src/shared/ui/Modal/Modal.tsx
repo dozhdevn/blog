@@ -10,11 +10,12 @@ export interface ModalProps {
   onClose?: () => void
   className?: string
   classNameContent?: string
+  children?: React.ReactNode
 }
 
-export const Modal: React.FC<ModalProps> = ({
+export const Modal = ({
   open, onClose, children, className, classNameContent,
-}) => {
+}: ModalProps) => {
   const rootRef = useRef<HTMLDivElement | null>(null)
 
   const onCloseWraperClickHandler = useCallback(

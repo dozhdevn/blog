@@ -4,13 +4,12 @@ import { NavLink, NavLinkProps } from 'react-router-dom'
 import cn from 'classnames'
 import styles from './AppLink.module.scss'
 
-interface AppLinkProps extends NavLinkProps {}
+interface AppLinkProps extends NavLinkProps {
+  className?: string
+}
 
-export const AppLink: React.FC<AppLinkProps> = ({
-  children,
-  ...props
-}) => (
-  <NavLink {...props} className={cn(styles.appLink, props.className)}>
+export const AppLink: React.FC<AppLinkProps> = ({ children, className, ...props }) => (
+  <NavLink {...props} className={cn(styles.appLink, className)}>
     {children}
   </NavLink>
 )

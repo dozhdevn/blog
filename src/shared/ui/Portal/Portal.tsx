@@ -1,8 +1,8 @@
-import React from 'react'
 import { createPortal } from 'react-dom'
 
 export interface PortalProps {
   mountNode?: HTMLElement
+  children?: React.ReactNode
 }
 
-export const Portal: React.FC<PortalProps> = ({ children, mountNode = document.body }) => createPortal(children, mountNode)
+export const Portal = ({ children, mountNode = document.body }: PortalProps) => createPortal(children, mountNode)

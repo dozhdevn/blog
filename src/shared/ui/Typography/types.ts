@@ -19,4 +19,4 @@ export type TypographyProps<Component extends React.ElementType> = PolimorphicCo
 export type TypographyComponent = <Component extends React.ElementType>(
   props: TypographyProps<Component>,
   ref: PolymorphicRef<Component>,
-) => React.ReactElement | null
+) => React.ReactNode

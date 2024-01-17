@@ -22,4 +22,4 @@ export type FlexProps<Component extends React.ElementType> = PolimorphicComponen
 export type FlexComponent = <Component extends React.ElementType>(
   props: FlexProps<Component>,
   ref: PolymorphicRef<Component>,
-) => React.ReactElement | null
+) => React.ReactNode

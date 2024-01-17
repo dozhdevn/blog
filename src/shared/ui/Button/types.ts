@@ -17,4 +17,4 @@ export type ButtonProps<Component extends React.ElementType> = PolimorphicCompon
 export type ButtonComponent = <Component extends React.ElementType>(
   props: ButtonProps<Component>,
   ref: PolymorphicRef<Component>,
-) => React.ReactElement | null
+) => React.ReactNode
