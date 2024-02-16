@@ -12,7 +12,7 @@ import { withAuth } from 'shared/lib/hocs/withAuth'
 import { useSelector } from 'react-redux'
 import { getUserInited } from 'entities/User/model/selectors/getUserInited'
 import { Flex } from 'shared/ui/Flex'
-import { withTheme } from './core'
+import { withTheme } from 'shared/lib/hocs/withTheme'
 import './app.scss'
 
 const App: React.FC = () => {
