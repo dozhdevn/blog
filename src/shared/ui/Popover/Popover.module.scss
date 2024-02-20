@@ -3,5 +3,5 @@
 }
 
 .container {
-  z-index: 9999;
+  z-index: var(--z-index-modal);
 }

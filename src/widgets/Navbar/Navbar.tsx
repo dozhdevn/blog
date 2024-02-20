@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux'
 
 import { Flex } from 'shared/ui/Flex'
 import { NotificationButton } from 'features/NotificationButton'
+
 import { AvatarDropdown } from './components/AvatarDropdown'
 
 import styles from './Navbar.module.scss'

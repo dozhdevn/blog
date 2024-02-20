@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import { Portal } from 'shared/ui/Portal'
 
 import cn from 'classnames'
+import { Overlay } from '../Overlay'
+
 import styles from './Modal.module.scss'
-import { Flex } from '../Flex'
 
 export interface ModalProps {
   open: boolean
@@ -56,9 +57,9 @@ export const Modal = ({
 
   return (
     <Portal>
-      <Flex justify='center' className={cn(styles.modal, className)} ref={rootRef}>
+      <Overlay ref={rootRef} className={cn(styles.modal, className)}>
         <div className={cn(styles.modal__content, classNameContent)}>{children}</div>
-      </Flex>
+      </Overlay>
     </Portal>
   )
 }

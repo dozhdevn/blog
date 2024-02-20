@@ -1,5 +1,10 @@
 .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-inline: 16px;
+  width: 100%;
   
   &:not(:last-child) {
     padding-bottom: 12px;

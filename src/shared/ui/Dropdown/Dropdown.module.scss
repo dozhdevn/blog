@@ -10,7 +10,7 @@
   width: 100%;
   min-width: 120px;
   position: absolute;
-  z-index: 9999;
+  z-index: var(--z-index-modal);
   margin-top: 5px;
   border-radius: 7px;
   border: 1px solid var(--light-bg-color);

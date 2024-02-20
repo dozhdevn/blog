@@ -5,7 +5,7 @@
   height: var(--navbar-height);
   background: var(--secondary-bg-color);
   padding: 20px;
-  z-index: 999;
+  z-index: var(--z-index-navbar);
 
   &__links {
     margin-left: auto;

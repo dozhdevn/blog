@@ -17,7 +17,7 @@ const NotificationList = ({ className }: Props) => {
   })
 
   const content = isLoading
-    ? Array.from({ length: 3 }).map((_, index) => <NotificationItemSkeleton key={index} />)
+    ? Array.from({ length: 5 }).map((_, index) => <NotificationItemSkeleton key={index} />)
     : data && data.map((item) => <NotificationItem key={item.id} item={item} />)
 
   return (
