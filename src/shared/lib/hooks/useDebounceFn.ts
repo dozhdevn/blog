@@ -1,7 +1,14 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export const useDebounceFn = <T>(callback: (...args: T[]) => void, delay: number) => {
-  const timerRef = useRef() as React.MutableRefObject<any>
+  const timerRef = useRef<NodeJS.Timeout>()
+
+  useEffect(
+    () => () => {
+      clearTimeout(timerRef.current)
+    },
+    [],
+  )
 
   const debouncedCallback = useCallback(
     (...args: T[]) => {
@@ -11,7 +18,7 @@ export const useDebounceFn = <T>(callback: (...args: T[]) => void, delay: number
         callback(...args)
       }, delay)
     },
-    [callback, delay],
+    [callback, delay, timerRef],
   )
 
   return debouncedCallback
