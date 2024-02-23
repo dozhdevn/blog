@@ -28,7 +28,8 @@ export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {
   }
 
   const cssLoader = {
-    test: /\.s[ac]ss$/i,
+    // test: /\.s[ac]ss$/i,
+    test: /\.(sass|css|scss)$/,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
@@ -36,9 +37,7 @@ export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {
         options: {
           modules: {
             auto: /\.module\.scss$/,
-            localIdentName: isDev
-              ? '[name]__[local]--[hash:base64:5]'
-              : '[hash:base64:5]',
+            localIdentName: isDev ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:5]',
           },
         },
       },
