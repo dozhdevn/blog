@@ -1,14 +1,12 @@
 import { Suspense } from 'react'
 import { compose } from 'redux'
 import { BrowserRouter } from 'react-router-dom'
-
 import { AppRouter } from 'app/routes'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { withRedux } from 'shared/lib/hocs/withRedux'
 import { withErrorBoundary } from 'shared/lib/hocs/withErrorBoundary'
 import { withAuth } from 'shared/lib/hocs/withAuth'
-
 import { useSelector } from 'react-redux'
 import { getUserInited } from 'entities/User/model/selectors/getUserInited'
 import { Flex } from 'shared/ui/Flex'

@@ -1,19 +1,14 @@
 import React, { useState } from 'react'
-
 import cn from 'classnames'
-
 import { Button } from 'shared/ui/Button'
-
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUserName'
 import { getAuthData } from 'entities/User'
 import { useSelector } from 'react-redux'
-
 import { Flex } from 'shared/ui/Flex'
 import { NotificationButton } from 'features/NotificationButton'
 
 import { AvatarDropdown } from './components/AvatarDropdown'
-
 import styles from './Navbar.module.scss'
 
 export interface NavbarProps {

@@ -1,13 +1,13 @@
 import React from 'react'
 import cn from 'classnames'
-
 import { ArticleSortField } from 'entities/Article'
 import { SortOrder } from 'shared/types'
-
 import Select from 'shared/ui/Select'
 import { Flex } from 'shared/ui/Flex'
-import styles from './ArticleSortSelector.module.scss'
+
 import { orderOptions, sortOptions } from '../model/consts'
+
+import styles from './ArticleSortSelector.module.scss'
 
 interface Props {
   sort: ArticleSortField

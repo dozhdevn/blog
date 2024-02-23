@@ -1,7 +1,5 @@
 import cn from 'classnames'
-
 import { Typography } from 'shared/ui/Typography'
-
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentsForArticle'
 import { AddCommentForm } from 'features/addCommentForm'
@@ -13,6 +11,7 @@ import {
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchCommentsByArticleId } from 'features/ArticleCommentList'
+
 import styles from './ArticleDetailsComments.module.scss'
 
 interface Props {

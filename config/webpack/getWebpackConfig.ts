@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack'
+
 import { WebpackOptions } from './types/config'
 import { getPlugins } from './getPlugins'
 import { getLoaders } from './getLoaders'

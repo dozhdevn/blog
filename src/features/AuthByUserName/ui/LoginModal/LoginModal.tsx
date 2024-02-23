@@ -1,7 +1,7 @@
 import { Modal } from 'shared/ui/Modal'
 import React, { Suspense } from 'react'
-
 import { Loader } from 'shared/ui/Loader'
+
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy'
 
 import styles from './LoginModal.module.scss'

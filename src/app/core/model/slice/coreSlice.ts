@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getLocalStorage } from 'shared/lib/utils/getLocalStorage'
+
 import { CoreSchema } from '../types/types'
 import { Theme } from '../consts/consts'
 

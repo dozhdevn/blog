@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { Profile, profileActions } from 'entities/Profile'
 import { ThunkConfig } from 'app/store/config/types'
 import { isEmpti } from 'shared/lib/utils/isEmpty'
+
 import { getProfileForm } from '../../selectors/getProfileForm'
 import { editableProfileActions } from '../../slice/editableProfile'
 import { validateProfile } from '../validateProfile/validateProfile'

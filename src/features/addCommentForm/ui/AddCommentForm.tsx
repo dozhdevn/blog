@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
-
 import { Flex } from 'shared/ui/Flex'
 
 interface Props {

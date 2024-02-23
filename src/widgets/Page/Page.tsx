@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import cn from 'classnames'
-
 import { useThrottleFn } from 'shared/lib/hooks/useThrottleFn'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { scrollAction } from 'features/ScrollPosition'
@@ -10,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { getScrollPosition } from 'features/ScrollPosition/model/selectors/scrollPosition'
 import { StoreSchema } from 'app/store/config/types'
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll'
+
 import styles from './Page.module.scss'
 
 interface Props {

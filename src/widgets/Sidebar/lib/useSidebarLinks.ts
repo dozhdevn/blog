@@ -5,6 +5,7 @@ import HomeIcon from 'shared/assets/icons/svg/home.svg'
 import AboutIcon from 'shared/assets/icons/svg/about.svg'
 import ProfileIcon from 'shared/assets/icons/svg/profile.svg'
 import ArticlesIcon from 'shared/assets/icons/svg/articles.svg'
+
 import { SideBarLinkType } from '../model/types'
 
 export const useSidebarLinks = () => {

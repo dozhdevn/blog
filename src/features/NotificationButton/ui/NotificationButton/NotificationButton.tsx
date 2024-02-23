@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { Popover } from 'shared/ui/Popover'
-
 import { NotificationList } from 'entities/Notification'
-
 import { useMatchMedia } from 'shared/lib/hooks/useMatchMedia'
 import { Drawer } from 'shared/ui/Drawer'
-
 import { NotifyButton } from 'widgets/Navbar/components/NotifyButton'
+
 import styles from './NotificationButton.module.scss'
 
 const NotificationButton = () => {

@@ -3,10 +3,11 @@ import cn from 'classnames'
 import { Typography } from 'shared/ui/Typography'
 import { Link } from 'react-router-dom'
 import { Flex } from 'shared/ui/Flex'
+
 import { ArticleProps } from '../../model/types/article'
+import { ArticleViews } from '../ArticleViews'
 
 import styles from './ArticleSmall.module.scss'
-import { ArticleViews } from '../ArticleViews'
 import ArticleSmallSkeleton from './ArticleSmallSkeleton'
 
 const ArticleSmall: React.FC<ArticleProps> = ({

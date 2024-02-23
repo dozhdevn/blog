@@ -2,6 +2,7 @@
 import {
   AnyAction, Reducer, ReducersMapObject, combineReducers,
 } from '@reduxjs/toolkit'
+
 import { ReducerManager, StoreSchema, StoreSchemaKey } from './types'
 
 export function createReducerManager(initialReducers: ReducersMapObject<StoreSchema>): ReducerManager {

@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { CommentData } from 'entities/Comment'
+
 import { ArticleCommentListSchema } from '../types/ArticleCommentListSchema'
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId'
 

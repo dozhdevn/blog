@@ -1,5 +1,4 @@
 import { IconButton } from 'shared/ui/IconButton'
-
 import NotifyIcon from 'shared/assets/icons/svg/notify.svg'
 
 interface Props {

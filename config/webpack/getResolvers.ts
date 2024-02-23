@@ -1,4 +1,5 @@
 import { ResolveOptions } from 'webpack'
+
 import { WebpackOptions } from './types/config'
 
 export const getResolvers = (options: WebpackOptions): ResolveOptions => ({

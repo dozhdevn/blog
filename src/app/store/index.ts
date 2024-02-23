@@ -6,6 +6,7 @@ import { userReducer } from 'entities/User'
 import { $axios } from 'shared/api/api'
 import { scrollReducer } from 'features/ScrollPosition'
 import { rtkApi } from 'shared/api/rtkApi'
+
 import { StoreSchema, ThunkExtraArg } from './config/types'
 import { createReducerManager } from './config/reducerManager'
 

@@ -1,15 +1,12 @@
 import React, { memo } from 'react'
 import cn from 'classnames'
-
 import { Input } from 'shared/ui/Input'
-
 import { Profile } from 'entities/Profile'
-
 import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
-
 import { ProfileErrors } from 'features/EditableProfile'
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './ProfileCard.module.scss'
 
 export interface ProfileCardProps {

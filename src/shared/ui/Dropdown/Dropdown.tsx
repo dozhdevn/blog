@@ -1,10 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useRef, useState } from 'react'
 import cn from 'classnames'
-
 import { useClickOutside } from 'shared/lib/hooks/useOutsideClick'
-import styles from './Dropdown.module.scss'
+
 import { Flex } from '../Flex'
+
+import styles from './Dropdown.module.scss'
 import { DropdownProps } from './types'
 
 const Dropdown = ({

@@ -1,5 +1,4 @@
 import { PropsWithChildren, useRef } from 'react'
-
 import { useClickOutside } from 'shared/lib/hooks/useOutsideClick'
 
 import { Portal } from '../Portal'

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import cn from 'classnames'
-
 import ArrowHorizontal from 'shared/assets/icons/svg/arrow-horizontal.svg'
 import { IconButton } from 'shared/ui/IconButton'
 import { useSelector } from 'react-redux'
 import { getIsAuth } from 'entities/User/model/selectors/getIsAuth'
 import { Flex } from 'shared/ui/Flex'
+
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import { LanguageSwitch } from '../LanguageSwitch'
 

@@ -1,9 +1,7 @@
 import React, { memo, useCallback, useEffect } from 'react'
 import cn from 'classnames'
-
 import { Button } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
-
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
@@ -12,6 +10,7 @@ import { Typography } from 'shared/ui/Typography'
 import { ReducersList } from 'widgets/layouts/DynamicModuleLoader'
 import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers'
 import { Flex } from 'shared/ui/Flex'
+
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername'

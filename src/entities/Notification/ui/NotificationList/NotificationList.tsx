@@ -2,6 +2,7 @@
 import { useGetNotificationsQuery } from 'entities/Notification/api/notificationApi'
 import { Flex } from 'shared/ui/Flex'
 import cn from 'classnames'
+
 import { NotificationItem } from '../NotificationItem'
 import NotificationItemSkeleton from '../NotificationItem/NotificationItemSkeleton'
 

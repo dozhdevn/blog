@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './ArticleSkeleton.module.scss'
 
 export const ArticleSkeleton: React.FC = () => (

@@ -1,9 +1,10 @@
 import cn from 'classnames'
 import React from 'react'
 
+import { PolymorphicRef } from '../__base/types/polimophic'
+
 import styles from './Button.module.scss'
 import { ButtonComponent, ButtonProps } from './types'
-import { PolymorphicRef } from '../__base/types/polimophic'
 
 const ButtonBase = <T extends React.ElementType = 'button'>(props: ButtonProps<T>, ref: PolymorphicRef<T>) => {
   const {

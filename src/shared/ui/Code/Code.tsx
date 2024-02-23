@@ -1,8 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-
 import CopyIcon from 'shared/assets/icons/svg/copy.svg'
-
 import { IconButton } from 'shared/ui/IconButton'
 
 import styles from './Code.module.scss'

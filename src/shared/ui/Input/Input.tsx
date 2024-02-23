@@ -2,10 +2,11 @@ import React, {
   forwardRef, memo, useRef, useState,
 } from 'react'
 import cn from 'classnames'
-
 import { Typography } from 'shared/ui/Typography'
-import styles from './Input.module.scss'
+
 import { Flex } from '../Flex'
+
+import styles from './Input.module.scss'
 
 type HTMLInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 

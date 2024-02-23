@@ -1,9 +1,8 @@
 import React, { memo } from 'react'
 import cn from 'classnames'
-
 import { AppLink } from 'shared/ui/AppLink'
-
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './SudebarLink.module.scss'
 
 export interface SidebarLinkProps {

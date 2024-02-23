@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/order
 module.exports = {
   env: {
     browser: true,
@@ -12,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'import'],
   rules: {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
@@ -48,6 +49,21 @@ module.exports = {
     'react/no-unused-prop-types': 'off',
     'react/prop-types': 'off',
     'default-param-last': 0,
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroups: [
+          {
+            pattern: '*.scss',
+            group: 'index',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

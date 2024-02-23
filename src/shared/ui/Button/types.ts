@@ -1,4 +1,5 @@
 import { PolimorphicComponentPropsWithRef, PolymorphicRef } from '../__base/types/polimophic'
+
 import { ButtonSize, ButtonVariant } from './constants'
 
 type ButtonVariants = `${ButtonVariant}`

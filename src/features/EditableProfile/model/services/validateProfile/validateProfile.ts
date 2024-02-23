@@ -1,4 +1,5 @@
 import { Profile } from 'entities/Profile'
+
 import { ProfileErrors } from '../../types/editableProfile'
 import { ProfileSchemaValidationKeys, ValidateProfileError, usernameRegExp } from '../../consts/consts'
 

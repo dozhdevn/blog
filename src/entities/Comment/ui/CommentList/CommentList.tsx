@@ -1,8 +1,9 @@
 import React from 'react'
 import cn from 'classnames'
-import { CommentData } from '../../model/types/comment'
 
+import { CommentData } from '../../model/types/comment'
 import { Comment } from '../Comment/Comment'
+
 import styles from './CommentList.module.scss'
 
 export interface CommentListProps {

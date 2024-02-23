@@ -5,16 +5,17 @@ import { useSelector } from 'react-redux'
 import { Avatar } from 'shared/ui/Avatar'
 import { Typography } from 'shared/ui/Typography'
 import { Flex } from 'shared/ui/Flex'
+
 import { ArticleBlock } from '../../model/types/article'
 import { getArticle, getArticleError, getArticleLoading } from '../../model/selectors/articleDetails'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { ArticleSkeleton } from '../ArticleSkeleton/ArticleSkeleton'
-
-import styles from './ArticleDetails.module.scss'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleBlockType } from '../../model/consts/consts'
+
+import styles from './ArticleDetails.module.scss'
 
 const renderBlock = (block: ArticleBlock) => {
   const { type } = block

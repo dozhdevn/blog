@@ -1,6 +1,6 @@
 import React from 'react'
-
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './Option.module.scss'
 
 export interface OptionProps {

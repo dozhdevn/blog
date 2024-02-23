@@ -5,11 +5,12 @@ import cn from 'classnames'
 import ArrowIcon from 'shared/assets/icons/svg/arrow-horizontal.svg'
 import { TypedMemo } from 'shared/ui/__base/components/TypedMemo'
 import { useClickOutside } from 'shared/lib/hooks/useOutsideClick'
-import { SelectProps } from './types'
 
+import { Flex } from '../Flex'
+
+import { SelectProps } from './types'
 import styles from './Select.module.scss'
 import { Option } from './components/Option/Option'
-import { Flex } from '../Flex'
 
 const Select = <T,>({
   value,

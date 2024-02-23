@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Redirect, RouteProps, Route } from 'react-router-dom'
 import { isAccessByRole } from 'entities/User/model/selectors/roleSelectors'
 import { UserRole } from 'entities/User'
+
 import { RoutePath } from '../model/routePaths'
 
 export interface PrivateRouterProps extends RouteProps {

@@ -1,5 +1,6 @@
 import { Skeleton } from 'shared/ui/Skeleton'
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './ArticleSmall.module.scss'
 
 const ArticleSmallSkeleton = () => (

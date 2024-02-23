@@ -1,5 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { RuleSetRule } from 'webpack'
+
 import { WebpackOptions } from './types/config'
 
 export const getLoaders = (options: WebpackOptions): RuleSetRule[] => {

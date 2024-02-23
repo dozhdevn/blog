@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import { Portal } from 'shared/ui/Portal'
-
 import cn from 'classnames'
+
 import { Overlay } from '../Overlay'
 
 import styles from './Modal.module.scss'

@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 import { User, UserSchema } from '../types/user'
 import { UserService } from '../services/userService'
 

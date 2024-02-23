@@ -1,8 +1,9 @@
 import cn from 'classnames'
 
-import styles from './Tabs.module.scss'
 import { Typography } from '../Typography'
 import { Flex } from '../Flex'
+
+import styles from './Tabs.module.scss'
 
 interface Tab<T = string> {
   value: T

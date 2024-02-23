@@ -1,11 +1,10 @@
 import React from 'react'
 import cn from 'classnames'
-
 import TyleIcon from 'shared/assets/icons/svg/tile.svg'
 import ListIcon from 'shared/assets/icons/svg/list.svg'
-
 import { Flex } from 'shared/ui/Flex'
 import { ViewModeArticle } from 'entities/Article'
+
 import styles from './ArticleViewSelector.module.scss'
 
 const articleViewModes = [

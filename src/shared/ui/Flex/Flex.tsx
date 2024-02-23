@@ -1,11 +1,12 @@
-import { forwardRef } from 'react'
 import cn from 'classnames'
+import { forwardRef } from 'react'
+
 import { PolymorphicRef } from '../__base/types/polimophic'
+
+import styles from './Flex.module.scss'
 import {
   FlexAligns, FlexComponent, FlexDirections, FlexJustifies, FlexProps, GapSize,
 } from './types'
-
-import styles from './Flex.module.scss'
 
 const directionClasses: Record<FlexDirections, string> = {
   row: styles.directionRow,

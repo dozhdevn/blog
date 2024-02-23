@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema'
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
 

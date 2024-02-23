@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-
 import { CommentData } from 'entities/Comment'
 import { ThunkConfig } from 'app/store/config/types'
 

@@ -1,9 +1,10 @@
 import cn from 'classnames'
-
 import React from 'react'
+
+import { PolymorphicRef } from '../__base/types/polimophic'
+
 import styles from './Typography.module.scss'
 import { TypographyComponent, TypographyProps } from './types'
-import { PolymorphicRef } from '../__base/types/polimophic'
 
 const TypographyBase = <T extends React.ElementType>(props: TypographyProps<T>, ref: PolymorphicRef<T>) => {
   const {

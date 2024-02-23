@@ -1,9 +1,8 @@
 import React from 'react'
-
 import EyeIcon from 'shared/assets/icons/svg/eye.svg'
-
 import { Typography } from 'shared/ui/Typography'
 import { Flex } from 'shared/ui/Flex'
+
 import styles from './ArticleViews.module.scss'
 
 interface Props {

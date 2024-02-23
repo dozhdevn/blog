@@ -5,6 +5,7 @@ import { Typography } from 'shared/ui/Typography'
 import { Button } from 'shared/ui/Button'
 import { useHistory } from 'react-router-dom'
 import { Flex } from 'shared/ui/Flex'
+
 import { ArticleProps, ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleViews } from '../ArticleViews'

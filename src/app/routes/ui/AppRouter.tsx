@@ -2,6 +2,7 @@ import { PageLoader } from 'widgets/PageLoader'
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { routerConfig } from 'app/routes/model/routeConfig'
+
 import { PrivateRouter } from './PrivateRouter'
 
 export const AppRouter: React.FC = () => (

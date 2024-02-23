@@ -1,6 +1,6 @@
 import cn from 'classnames'
-
 import { Typography } from 'shared/ui/Typography'
+
 import { Notification } from '../../model/types/notification'
 
 import styles from './NotificationItem.module.scss'

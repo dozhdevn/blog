@@ -5,6 +5,7 @@ import { Typography } from 'shared/ui/Typography'
 import { Link } from 'react-router-dom'
 import { RoutePath } from 'app/routes/model/routePaths'
 import { Flex } from 'shared/ui/Flex'
+
 import { CommentData } from '../../model/types/comment'
 
 import styles from './Comment.module.scss'

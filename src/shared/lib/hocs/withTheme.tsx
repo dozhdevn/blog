@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux'
-
 import { getTheme } from 'app/core/model/selectors/getTheme'
-
 import { useLayoutEffect } from 'react'
 import { Theme } from 'app/core'
 

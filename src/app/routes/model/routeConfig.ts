@@ -7,6 +7,7 @@ import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { AdminPanelPage } from 'pages/AdminPanelPage'
 import { ForbiddenPage } from 'pages/ForbiddenPage'
 import { UserRole } from 'entities/User'
+
 import { RouterConfig } from './types'
 import { RoutePath } from './routePaths'
 

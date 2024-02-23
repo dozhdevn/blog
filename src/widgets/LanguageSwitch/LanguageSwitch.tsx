@@ -1,10 +1,9 @@
 import React from 'react'
-
 import cn from 'classnames'
-
 import { useTranslation } from 'react-i18next'
 import { Languages } from 'shared/config/i18n/types'
 import { IconButton } from 'shared/ui/IconButton'
+
 import styles from './LanguageSwitch.module.scss'
 
 export interface LanguageSwitchProps {

@@ -1,5 +1,6 @@
 import { USER_LOCALE_STORAGE_KEY } from 'shared/constants/localstorage'
 import Cookies from 'universal-cookie'
+
 import { User } from '../types/user'
 
 export class UserService {

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+
 import { getQuantityArticles } from '../../lib/getQuantityArticles'
 import ArticleLargeSkeleton from '../ArticleLarge/ArticleLargeSkeleton'
 import ArticleSmallSkeleton from '../ArticleSmall/ArticleSmallSkeleton'

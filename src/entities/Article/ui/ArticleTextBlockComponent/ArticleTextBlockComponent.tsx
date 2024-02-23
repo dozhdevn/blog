@@ -1,6 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
 import { Typography } from 'shared/ui/Typography'
+
 import { ArticleTextBlock } from '../../model/types/article'
 
 import styles from './ArticleTextBlockComponent.module.scss'

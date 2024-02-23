@@ -1,4 +1,5 @@
 import { PolimorphicComponentPropsWithRef, PolymorphicRef } from '../__base/types/polimophic'
+
 import { TypographyAlign, TypographyColor, TypographyVariant } from './constants'
 
 type TypographyAlignes = `${TypographyAlign}`
