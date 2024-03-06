@@ -1,0 +1,27 @@
+.star {
+  padding-inline: 4px;
+
+  &:hover {
+    & svg {
+      color: var(--icon-color);
+      fill: var(--icon-color);
+    }
+  }
+
+  &:first-child {
+    padding-inline-start: 0;
+  }
+
+  &:last-child {
+    padding-inline-end: 0;
+  }
+}
+
+.icon {
+  color: var(--icon-color);
+  fill: none;
+}
+
+.active {
+  fill: var(--icon-color);
+}

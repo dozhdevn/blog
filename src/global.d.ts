@@ -1,9 +1,11 @@
+type Nullable<T> = T | null
+
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
   }
   const classNames: IClassNames
-  export = classNames;
+  export = classNames
 }
 declare module '*.png'
 declare module '*.jpeg'
