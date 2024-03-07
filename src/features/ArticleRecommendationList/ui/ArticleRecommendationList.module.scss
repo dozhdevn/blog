@@ -1,3 +1,9 @@
 .title {
   margin-bottom: 10px;
 }
+
+.list {
+  @media (width <= 1080px) {
+    justify-content: center;
+  }
+}

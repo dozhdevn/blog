@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { DynamicModuleLoader } from 'widgets/layouts/DynamicModuleLoader'
 import { Page } from 'widgets/Page'
 import { ArticleRecommendationList } from 'features/ArticleRecommendationList'
+import { ArticleRating } from 'features/ArticleRating'
 
 import { articleDetailsPageReducer } from '../../model/slices'
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments'
@@ -24,6 +25,7 @@ const ArticleDetailsPage: React.FC = () => {
     <DynamicModuleLoader {...config}>
       <Page>
         <ArticleDetails id={id} />
+        <ArticleRating id={id} className={styles.rating} />
         <ArticleRecommendationList className={styles.recommendation} />
         <ArticleDetailsComments id={id} />
       </Page>

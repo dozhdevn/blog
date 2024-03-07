@@ -25,3 +25,7 @@
 .active {
   fill: var(--icon-color);
 }
+
+.readonly {
+  pointer-events: none;
+}

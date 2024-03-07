@@ -18,7 +18,13 @@ const ArticleRecommendationList = ({ className }: { className?: string }) => {
       <Typography variant='subTitle' as='h3' className={styles.title}>
         Рекомендуем
       </Typography>
-      <ArticleList articles={recommendations} isLoading={isLoading} viewMode={ViewModeArticle.Tile} target='_blank' />
+      <ArticleList
+        articles={recommendations}
+        isLoading={isLoading}
+        viewMode={ViewModeArticle.Tile}
+        target='_blank'
+        className={styles.list}
+      />
     </div>
   )
 }

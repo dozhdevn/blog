@@ -9,11 +9,14 @@ import styles from './RatingStar.module.scss'
 
 interface Props {
   value?: Nullable<number>
+  readonly?: boolean
   onSelect?: (value: Nullable<number>) => void
   className?: string
 }
 
-const RatingStar: React.FC<Props> = ({ value = 0, onSelect, className }) => {
+const RatingStar: React.FC<Props> = ({
+  value = null, readonly, onSelect, className,
+}) => {
   const [selected, setSelected] = useState(value)
   const [hover, setHover] = useState(0)
 
@@ -42,7 +45,7 @@ const RatingStar: React.FC<Props> = ({ value = 0, onSelect, className }) => {
         return (
           <IconButton
             key={rating}
-            className={styles.star}
+            className={cn(styles.star, readonly && styles.readonly)}
             onClick={onClickStarHandler(rating)}
             onMouseEnter={onMouseEnterHandler(rating)}
             onMouseLeave={onMouseLeaveHandler}
