@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import cn from 'classnames'
 import { Flex } from 'shared/ui/Flex'
 import { RatingStar } from 'shared/ui/RatingStar'

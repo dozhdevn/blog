@@ -1,5 +1,4 @@
 import React from 'react'
-import cn from 'classnames'
 import { Avatar } from 'shared/ui/Avatar'
 import { Typography } from 'shared/ui/Typography'
 import { Link } from 'react-router-dom'
