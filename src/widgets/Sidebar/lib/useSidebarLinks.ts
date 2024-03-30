@@ -1,10 +1,10 @@
-import { RoutePath } from 'app/routes/model/routePaths'
 import { getAuthData } from 'entities/User'
 import { useSelector } from 'react-redux'
 import HomeIcon from 'shared/assets/icons/svg/home.svg'
 import AboutIcon from 'shared/assets/icons/svg/about.svg'
 import ProfileIcon from 'shared/assets/icons/svg/profile.svg'
 import ArticlesIcon from 'shared/assets/icons/svg/articles.svg'
+import { RoutePath, getRouteProfile } from 'shared/constants/routing'
 
 import { SideBarLinkType } from '../model/types'
 
@@ -23,7 +23,7 @@ export const useSidebarLinks = () => {
       icon: AboutIcon,
     },
     {
-      to: `${RoutePath.PROFILE}/${user?.id}`,
+      to: getRouteProfile(user?.id),
       title: 'Профиль',
       icon: ProfileIcon,
       visibleOnlyAuth: true,

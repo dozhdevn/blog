@@ -7,9 +7,9 @@ import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { AdminPanelPage } from 'pages/AdminPanelPage'
 import { ForbiddenPage } from 'pages/ForbiddenPage'
 import { UserRole } from 'entities/User'
+import { RoutePath } from 'shared/constants/routing'
 
 import { RouterConfig } from './types'
-import { RoutePath } from './routePaths'
 
 export const routerConfig: RouterConfig[] = [
   {

@@ -1,8 +1,8 @@
-import { RoutePath } from 'app/routes/model/routePaths'
 import { getAuthData, userActions } from 'entities/User'
 import { isUserAdmin } from 'entities/User/model/selectors/roleSelectors'
 import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
+import { getRouteAdmin, getRouteProfile } from 'shared/constants/routing'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { AppLink } from 'shared/ui/AppLink'
 import { Avatar } from 'shared/ui/Avatar'
@@ -25,7 +25,7 @@ const AvatarDropdown: React.FC<Props> = ({ className }) => {
     const adminDropdownItems = adminUser
       ? [
         {
-          label: <AppLink to={RoutePath.ADMIN}>Админка</AppLink>,
+          label: <AppLink to={getRouteAdmin()}>Админка</AppLink>,
         },
       ]
       : []
@@ -35,7 +35,7 @@ const AvatarDropdown: React.FC<Props> = ({ className }) => {
         items={[
           ...adminDropdownItems,
           {
-            label: <AppLink to={`${RoutePath.PROFILE}/${authData.id}`}>Профиль</AppLink>,
+            label: <AppLink to={getRouteProfile(authData.id)}>Профиль</AppLink>,
           },
           {
             label: <button onClick={logOutHandler}>Выйти</button>,

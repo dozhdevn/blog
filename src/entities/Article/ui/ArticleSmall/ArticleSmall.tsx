@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { Typography } from 'shared/ui/Typography'
 import { Link } from 'react-router-dom'
 import { Flex } from 'shared/ui/Flex'
+import { getRouteArctiles } from 'shared/constants/routing'
 
 import { ArticleProps } from '../../model/types/article'
 import { ArticleViews } from '../ArticleViews'
@@ -25,7 +26,7 @@ const ArticleSmall: React.FC<ArticleProps> = ({
       align='stretch'
       gap={16}
       className={cn(styles.article, className)}
-      to={`/articles/${article.id}`}
+      to={getRouteArctiles(article.id)}
       target={target}
     >
       <img src={article.img} alt={article.title} className={styles.img} />

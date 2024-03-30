@@ -3,10 +3,10 @@ import { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import React, { useLayoutEffect } from 'react'
 import { useStore } from 'react-redux'
-import { ReduxStoreWithManager, StoreSchemaKey } from 'app/store/config/types'
+import { ReduxStoreWithManager, StoreSchema, StoreSchemaKey } from 'app/store/config/types'
 
 export type ReducersList = {
-  [key in StoreSchemaKey]?: Reducer
+  [key in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[key]>>
 }
 
 export interface DynamicModuleLoaderProps {
@@ -15,11 +15,7 @@ export interface DynamicModuleLoaderProps {
   children?: React.ReactNode
 }
 
-export const DynamicModuleLoader = ({
-  reducers,
-  removeAfterUnmount = true,
-  children,
-}: DynamicModuleLoaderProps) => {
+export const DynamicModuleLoader = ({ reducers, removeAfterUnmount = true, children }: DynamicModuleLoaderProps) => {
   const store = useStore() as ReduxStoreWithManager
   const dispatch = useAppDispatch()
 

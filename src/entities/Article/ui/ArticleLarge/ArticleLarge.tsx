@@ -5,6 +5,7 @@ import { Typography } from 'shared/ui/Typography'
 import { Button } from 'shared/ui/Button'
 import { useHistory } from 'react-router-dom'
 import { Flex } from 'shared/ui/Flex'
+import { getRouteArctiles } from 'shared/constants/routing'
 
 import { ArticleProps, ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -22,7 +23,7 @@ const ArticleLarge: React.FC<ArticleProps> = ({ article, className }) => {
   }
 
   const onClickReadMore = () => {
-    history.push(`/articles/${article.id}`)
+    history.push(getRouteArctiles(article.id))
   }
 
   return (
